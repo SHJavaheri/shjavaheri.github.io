@@ -3,13 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to SHJavaheri's Website</title>
+    <title>SH Javaheri</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Dark Mode Toggle Button -->
+    <button id="darkModeToggle">
+        <span id="modeIcon">☀️</span>
+    </button>
+
+    <!-- Ripple Effect Layer -->
+    <div id="ripple"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#background">Background</a></li>
+            <li><a href="#journey">My Journey</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+        </ul>
+    </nav>    
+
+    <!-- Header Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <img src="images\homepage\profile_pic.jpg" alt="Profile Picture" class="profile-picture">
+            <h1>Hamid Javaheri</h1>
+            <p>AI & Fullstack Developer | Engineering Graduate</p>
+            <a href="#about" class="hero-button">About Me</a>
+        </div>
+    </header>    
+
+    <!-- Main Content -->
     <main>
-        <h1>Hello, I'm SH Javaheri!</h1>
-        <p>Welcome to my personal website. More coming soon!</p>
+        <section id="about">
+            <h2>About Me</h2>
+        
+            <p id="aboutFirstParagraph">
+                Hello, I'm <strong>Hamid Javaheri</strong>, a Computer Engineering graduate and passionate developer focused on creating reliable, efficient, and thoughtfully designed software solutions. I specialize in full-stack development and cloud technologies, with a strong interest in building products that are both technically sound and user-centric.
+            </p>
+        
+            <div id="moreAboutMe" class="more-text">
+                <p>
+                    My academic foundation in <strong>Computer Engineering</strong>, combined with hands-on project experience, has shaped my ability to solve complex technical problems with a practical mindset. I believe that great software is built not just with code, but with a deep understanding of user needs, attention to detail, and a commitment to quality.
+                </p>
+                <p>
+                    I have experience in <strong>front-end</strong> and <strong>back-end</strong> development, <strong>cloud</strong> deployment, system design, and project collaboration across diverse teams. My recent work includes full-stack web applications, cloud-based service platforms, and intelligent system integrations.
+                </p>
+                <p>
+                    Beyond formal projects, I have a strong interest in solving everyday challenges through innovation, whether that's developing custom hardware solutions or designing software tools tailored to real needs. These projects reflect my drive to create practical, user-focused solutions when existing ones fall short.
+                </p>
+                <p>
+                    Looking ahead, I aim to continue advancing my skills in cloud engineering, machine learning (AI), full-stack development, and system design, while exploring opportunities that allow me to build impactful, scalable technology. I’m committed to lifelong learning, meaningful innovation, and using technology as a tool to make everyday life better, both for users and for teams I collaborate with.
+                </p>
+            </div>
+        
+            <button id="toggleMoreAboutMe" class="hero-button about-toggle">Keep Reading</button>
+        </section>      
+    
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul>
+                <li>Project 1 - Coming Soon</li>
+                <li>Project 2 - Coming Soon</li>
+                <li>Project 3 - Coming Soon</li>
+            </ul>
+        </section>
+    
+        <section id="background">
+            <h2>Background</h2>
+            <p>Educational background, experiences, and foundations that shaped who I am today.</p>
+        </section>
+    
+        <section id="journey">
+            <h2>My Journey</h2>
+            <p>A story of growth, challenges, and milestones I've crossed on my way here.</p>
+        </section>
+    
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Reach out at: <strong>your.email@example.com</strong></p>
+        </section>
     </main>
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Hamid Javaheri. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
