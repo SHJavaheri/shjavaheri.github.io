@@ -126,5 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
     timelineItems.forEach(item => {
     observer.observe(item);
     });
+  
 
 });
