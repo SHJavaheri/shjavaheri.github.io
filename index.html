@@ -380,6 +380,23 @@
         <p>&copy; 2025 Hamid Javaheri. All rights reserved.</p>
     </footer>
 
+
+    <!-- Ambient Sound -->
+    <audio id="ambientAudio" loop preload="auto">
+      <source src="sounds/music/ambient.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Audio Controls -->
+    <div class="audio-controls">
+      <button id="audioToggle" title="Toggle Sound">🔈</button>
+      <div class="slider-wrapper">
+        <input type="range" id="volumeSlider" min="0" max="100" value="10">
+      </div>
+    </div>
+
+    <audio id="clickSound" src="sounds/sfx/mouse_click.mp3" preload="auto"></audio>
+    
+
     <!-- JavaScript -->
     <script src="script.js"></script>
 </body>

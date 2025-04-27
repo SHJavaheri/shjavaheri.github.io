@@ -273,5 +273,64 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Initialize
         initParticles();
-        animateParticles();        
+        animateParticles();
+        
+        
+        // Ambient Audio Control
+        const audio = document.getElementById('ambientAudio');
+        const audioToggle = document.getElementById('audioToggle');
+        const volumeSlider = document.getElementById('volumeSlider');
+
+        // Set initial volume
+        audio.volume = 0.1;
+        audio.muted = true;
+
+        // Try to autoplay muted (browser safe)
+        audio.play().catch(e => console.log("Autoplay muted."));
+
+        // As soon as user interacts, unmute
+        function unmuteAudio() {
+            audio.muted = false;
+            audio.play();
+            document.body.removeEventListener('click', unmuteAudio);
+            document.body.removeEventListener('keydown', unmuteAudio);
+            document.body.removeEventListener('scroll', unmuteAudio);
+        }
+        document.body.addEventListener('click', unmuteAudio);
+        document.body.addEventListener('keydown', unmuteAudio);
+        document.body.addEventListener('scroll', unmuteAudio);
+
+        // Mute/unmute button
+        audioToggle.addEventListener('click', () => {
+            if (audio.muted) {
+                audio.muted = false;
+                audio.play();
+                audioToggle.textContent = "🔊";
+            } else {
+                audio.muted = true;
+                audioToggle.textContent = "🔈";
+            }
+        });
+
+        // Volume slider
+        volumeSlider.addEventListener('input', () => {
+            audio.volume = volumeSlider.value / 100;
+        });
+
+        // Play click sound on interactive elements
+        const clickSound = document.getElementById('clickSound');
+
+        // Set manual volume here:
+        clickSound.volume = 0.33; // Adjust between 0.0 (silent) to 1.0 (full volume)
+
+        document.addEventListener('click', (event) => {
+        const target = event.target;
+
+        if (target.closest('a, button, input[type="button"], input[type="submit"]')) {
+            clickSound.currentTime = 0;
+            clickSound.play();
+        }
+        });
+
+
 });
