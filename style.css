@@ -719,6 +719,32 @@ header.hero {
 
 
 
+/* Clock Section */
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* Clock Canvas */
+#availabilityClock {
+  background: var(--section-background);
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: background 0.5s ease;
+}
+
+/* Availability Text */
+.availability-text {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-text-color);
+}
+
+
+
 /* Contact Me Section */
 #contact {
   background: var(--section-background);

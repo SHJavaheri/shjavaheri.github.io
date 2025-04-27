@@ -382,6 +382,96 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
         
-
+        const clockCanvas = document.getElementById('availabilityClock');
+        const clockCtx = clockCanvas.getContext('2d');
+        const statusText = document.getElementById('availability-status');
+        
+        function getLocalESTTime() {
+            const now = new Date();
+            const offset = now.getTimezoneOffset();
+            const isDST = now.getMonth() > 2 && now.getMonth() < 10; // Rough DST check
+            const estOffset = isDST ? -4 : -5; // EDT in summer, EST in winter
+            const localEST = new Date(now.getTime() + (offset + estOffset * 60) * 60000);
+            return localEST;
+        }
+        
+        function drawClock() {
+            const est = getLocalESTTime();
+        
+            const hours = est.getHours();
+            const minutes = est.getMinutes();
+            const seconds = est.getSeconds();
+        
+            const isWeekend = (est.getDay() === 0 || est.getDay() === 6); // Sunday=0, Saturday=6
+            const availableStart = isWeekend ? 10 : 9;
+            const availableEnd = isWeekend ? 18 : 21;
+        
+            const isAvailable = hours >= availableStart && hours < availableEnd;
+        
+            // Update text
+            statusText.textContent = isAvailable ? "✅ Currently Available" : "❌ Currently Unavailable";
+            statusText.style.color = isAvailable ? "green" : "red";
+        
+            // Clear and center
+            clockCtx.clearRect(0, 0, clockCanvas.width, clockCanvas.height);
+            const centerX = clockCanvas.width / 2;
+            const centerY = clockCanvas.height / 2;
+            const radius = centerX * 0.9;
+            clockCtx.save();
+            clockCtx.translate(centerX, centerY);
+        
+            // Background circle
+            clockCtx.beginPath();
+            clockCtx.arc(0, 0, radius, 0, 2 * Math.PI);
+            clockCtx.fillStyle = getComputedStyle(document.body).getPropertyValue('--section-background').trim();
+            clockCtx.fill();
+            clockCtx.closePath();
+        
+            // Availability Circle (FULL green or red based on availability)
+            clockCtx.beginPath();
+            clockCtx.lineWidth = 10;
+            clockCtx.strokeStyle = isAvailable ? "lightgreen" : "lightcoral";
+            clockCtx.arc(0, 0, radius * 0.85, 0, 2 * Math.PI);
+            clockCtx.stroke();
+            clockCtx.closePath();
+        
+            // Tick marks
+            for (let i = 0; i < 12; i++) {
+                const angle = (i * Math.PI) / 6;
+                const inner = radius * 0.8;
+                const outer = radius * 0.9;
+                clockCtx.beginPath();
+                clockCtx.moveTo(inner * Math.cos(angle), inner * Math.sin(angle));
+                clockCtx.lineTo(outer * Math.cos(angle), outer * Math.sin(angle));
+                clockCtx.strokeStyle = document.body.classList.contains('dark-mode') ? '#ccc' : '#555';
+                clockCtx.lineWidth = 2;
+                clockCtx.stroke();
+            }
+        
+            // Hands
+            drawHand((hours % 12 + minutes / 60) * 30, radius * 0.5, 6, clockCtx); // hour
+            drawHand((minutes + seconds / 60) * 6, radius * 0.7, 4, clockCtx);      // minute
+            drawHand(seconds * 6, radius * 0.8, 2, clockCtx, "#e63946");            // second (red)
+        
+            clockCtx.restore();
+        }
+        
+        function drawHand(angleDegrees, length, width, ctx, color = "#333") {
+            const angleRadians = (Math.PI / 180) * angleDegrees;
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.rotate(angleRadians);
+            ctx.lineTo(0, -length);
+            ctx.strokeStyle = color;
+            ctx.lineWidth = width;
+            ctx.lineCap = "round";
+            ctx.stroke();
+            ctx.rotate(-angleRadians);
+        }
+        
+        // Animate clock
+        setInterval(drawClock, 1000);
+        drawClock();
+        
 
 });
