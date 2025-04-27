@@ -4,6 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const modeIcon = document.getElementById('modeIcon');
     const ripple = document.getElementById('ripple');
 
+    // Function to update project images based on mode
+    function updateProjectImages() {
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        const projectImages = document.querySelectorAll('.project-img');
+
+        projectImages.forEach(img => {
+            if (isDarkMode) {
+                img.src = img.getAttribute('data-dark');
+            } else {
+                img.src = img.getAttribute('data-light');
+            }
+        });
+    }
+
     toggleButton.addEventListener('click', () => {
         ripple.style.transition = 'none';
         ripple.style.transform = 'scale(0)';
@@ -23,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 modeIcon.textContent = "☀️"; 
             }
+
+            updateProjectImages(); // Update project images after theme switch
         }, 300);
     });
 
@@ -73,4 +89,42 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.remove('active');
         });
     });
+
+    // Initial check: If page loads already in dark mode (e.g., user reloads while dark mode is active)
+    updateProjectImages();
+
+
+    // Flashlight effect (only active in dark mode)
+    const flashlight = document.getElementById('flashlight');
+
+    document.addEventListener('mousemove', (e) => {
+        if (document.body.classList.contains('dark-mode')) {
+            flashlight.style.opacity = '1';
+            flashlight.style.left = `${e.clientX}px`;
+            flashlight.style.top = `${e.clientY}px`;
+        } else {
+            flashlight.style.opacity = '0';
+        }
+    });
+
+
+    // Scroll fade for timeline items
+    const timelineItems = document.querySelectorAll('.timeline-item');
+
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        } else {
+        entry.target.classList.remove('active');
+        }
+    });
+    }, {
+    threshold: 0.3
+    });
+
+    timelineItems.forEach(item => {
+    observer.observe(item);
+    });
+
 });

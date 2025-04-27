@@ -10,6 +10,9 @@
     <!-- Ripple Effect Layer -->
     <div id="ripple"></div>
 
+    <!-- Flashlight Layer -->
+    <div id="flashlight"></div>
+
     <!-- Navigation Bar -->
     <nav class="navbar">
         <button id="hamburger" class="hamburger">&#9776;</button>
@@ -66,72 +69,199 @@
     </main>
 
     <section id="projects">
-        <h2>Projects</h2>
-      
-        <div class="projects-grid">
-      
+      <h2>Projects</h2>
+  
+      <div class="projects-grid">
+  
           <!-- Anomaly Detection -->
           <div class="project-card">
-            <img src="images/projects/AnomalyDetection_Light.png" alt="Anomaly Detection" class="project-img">
-            <div class="project-info">
-              <h3>Anomaly Detection in AR 🧠</h3>
-              <p>Real-time ML system built with TensorFlow, OpenCV, and Unity3D using autoencoders to identify anomalies in AR environments.</p>
-            </div>
+              <img src="images/projects/AnomalyDetection_Light.png" 
+                   alt="Anomaly Detection" 
+                   class="project-img"
+                   data-light="images/projects/AnomalyDetection_Light.png"
+                   data-dark="images/projects/AnomalyDetection_Dark.png">
+              <div class="project-info">
+                  <h3>Anomaly Detection in AR 🧠</h3>
+                  <p>Real-time ML system built with TensorFlow, OpenCV, and Unity3D using autoencoders to identify anomalies in AR environments.</p>
+              </div>
           </div>
-      
+  
           <!-- ATM System -->
           <div class="project-card">
-            <img src="images/projects/ATM_Light.png" alt="Secure ATM Banking System" class="project-img">
-            <div class="project-info">
-              <h3>Secure ATM Banking System 🔐</h3>
-              <p>Java-based ATM client-server system secured with encryption, authentication protocols, and encrypted audit logging.</p>
-            </div>
+              <img src="images/projects/ATM_Light.png" 
+                   alt="Secure ATM Banking System" 
+                   class="project-img"
+                   data-light="images/projects/ATM_Light.png"
+                   data-dark="images/projects/ATM_Dark.png">
+              <div class="project-info">
+                  <h3>Secure ATM Banking System 🔐</h3>
+                  <p>Java-based ATM client-server system secured with encryption, authentication protocols, and encrypted audit logging.</p>
+              </div>
           </div>
-      
+  
           <!-- QuizBot -->
           <div class="project-card">
-            <img src="images/projects/QuizBot_Light.png" alt="QuizBot" class="project-img">
-            <div class="project-info">
-              <h3>QuizBot 🤖</h3>
-              <p>Study companion that generates quizzes from study material using NLP — built to help students prep smarter.</p>
-            </div>
+              <img src="images/projects/QuizBot_Light.png" 
+                   alt="QuizBot" 
+                   class="project-img"
+                   data-light="images/projects/QuizBot_Light.png"
+                   data-dark="images/projects/QuizBot_Dark.png">
+              <div class="project-info">
+                  <h3>QuizBot 🤖</h3>
+                  <p>Study companion that generates quizzes from study material using NLP — built to help students prep smarter.</p>
+              </div>
           </div>
-      
+  
           <!-- Tubeify -->
           <div class="project-card">
-            <img src="images/projects/Tubeify_Light.png" alt="Tubeify" class="project-img">
-            <div class="project-info">
-              <h3>Tubeify 🎵</h3>
-              <p>MP3/MP4 converter that downloads YouTube content without ads, paywalls, or sketchy sites. Just clean downloads.</p>
-            </div>
+              <img src="images/projects/Tubeify_Light.png" 
+                   alt="Tubeify" 
+                   class="project-img"
+                   data-light="images/projects/Tubeify_Light.png"
+                   data-dark="images/projects/Tubeify_Dark.png">
+              <div class="project-info">
+                  <h3>Tubeify 🎵</h3>
+                  <p>MP3/MP4 converter that downloads YouTube content without ads, paywalls, or sketchy sites. Just clean downloads.</p>
+              </div>
           </div>
-      
+  
           <!-- Sortify -->
           <div class="project-card">
-            <img src="images/projects/Sortify_Light.png" alt="Sortify" class="project-img">
-            <div class="project-info">
-              <h3>Sortify 🗂️</h3>
-              <p>Smart file organizer that automatically sorts and categorizes files based on type, reducing digital clutter instantly.</p>
-            </div>
+              <img src="images/projects/Sortify_Light.png" 
+                   alt="Sortify" 
+                   class="project-img"
+                   data-light="images/projects/Sortify_Light.png"
+                   data-dark="images/projects/Sortify_Dark.png">
+              <div class="project-info">
+                  <h3>Sortify 🗂️</h3>
+                  <p>Smart file organizer that automatically sorts and categorizes files based on type, reducing digital clutter instantly.</p>
+              </div>
           </div>
-      
+  
           <!-- Coming Soon -->
           <div class="project-card">
-            <img src="images/projects/coming-soon-light.png" alt="More Projects Coming Soon" class="project-img">
-            <div class="project-info">
-              <h3>More Coming Soon 🚀</h3>
-              <p>New projects are always on the way — stay tuned for tools, apps, and experiments I'm currently building.</p>
-            </div>
+              <img src="images/projects/coming-soon-light.png" 
+                   alt="More Projects Coming Soon" 
+                   class="project-img"
+                   data-light="images/projects/ComingSoon_Light.png"
+                   data-dark="images/projects/ComingSoon_Dark.png">
+              <div class="project-info">
+                  <h3>More Coming Soon 🚀</h3>
+                  <p>New projects are always on the way — stay tuned for tools, apps, and experiments I'm currently building.</p>
+              </div>
           </div>
-      
-        </div>
-      </section>
+  
+      </div>
+  </section>
 
       <main>
         <section id="background">
-            <h2>Background</h2>
-            <p>Educational background, experiences, and foundations that shaped who I am today.</p>
+          <h2>Background</h2>
+          <div class="timeline">
+        
+            <div class="timeline-item right">
+              <div class="image-box">
+                <img src="images/background/HumbleBeginnings.png" alt="University">
+              </div>
+              <div class="dot"></div>   <!-- center dot -->
+              <div class="content">
+                <h3>Humble Beginnings <span class="timeline-years">(2002)</span></h3>
+                <p>Born in Tehran, Iran, I moved to Canada at just 11 months old. My parents, both engineers, rebuilt their lives from scratch, inspiring me with their work ethic. Growing up, I was naturally drawn to shapes, patterns, and numbers — laying the foundation for a lifelong love of math and science.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item left">
+              <div class="content">
+                <h3>Curious Early Years <span class="timeline-years">(2007-2010)</span></h3>
+                <p>School was where my love for science, math, and exploration truly took off. Between building legos, playing chess, competing in sports, and watching endless science documentaries, I was a ball of energy — often more interested in creating than sitting still in class. Even then, I started collecting awards in chess, martial arts, and soccer.</p>
+              </div>
+              <div class="dot"></div>
+              <div class="image-box">
+                <img src="images/background/CuriousEarlyYears.png" alt="University">
+              </div>
+            </div>
+
+            <div class="timeline-item right">
+              <div class="image-box">
+                <img src="images/background/ChildhoodFullOfAction.png" alt="University">
+              </div>
+              <div class="dot"></div>
+              <div class="content">
+                <h3>A Childhood Full of Action <span class="timeline-years">(2010-2012)</span></h3>
+                <p>As I grew, my world expanded beyond the classroom. I earned my swimming certifications, reached black belt in martial arts, and racked up several sports medals. Around this time, my best friend and I began dreaming about creating a company that could invent anything — a seed of ambition that’s still alive today.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item left">
+              <div class="content">
+                <h3>The Spark of Innovation <span class="timeline-years">(2012-2016)</span></h3>
+                <p>By the end of elementary school, I was obsessed with mathematics, design, and technology. I explored Photoshop, video editing, 3D modeling, and game development. I also took on leadership roles — serving as president of school clubs and volunteering at community centers — setting the stage for the years ahead.</p>
+              </div>
+              <div class="dot"></div>
+              <div class="image-box">
+                <img src="images/background/SparkOfInnovation.png" alt="University">
+              </div>
+            </div>
+
+            <div class="timeline-item right">
+              <div class="image-box">
+                <img src="images/background/FindingMyVoice.png" alt="University">
+              </div>
+              <div class="dot"></div>   <!-- center dot -->
+              <div class="content">
+                <h3>Finding My Voice <span class="timeline-years">(2016-2018)</span></h3>
+                <p>High school marked a turning point. I found my people — a community that shared my love of learning, leadership, and creativity. I joined leadership teams, tech crew, computer science clubs, and more, fueling my passion for technology, education, and inspiring others. I also traveled, performed, and started creating educational content to reach wider audiences.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item left">
+              <div class="content">
+                <h3>Stepping Up <span class="timeline-years">(2018-2020)</span></h3>
+                <p>Graduating Richmond Green Secondary School. The end of high school, I earned an Olympic Gold Medal certificate in martial arts performance and became a certified swimming instructor and first-aid responder. I tutored advanced math, performed at cultural events, and began developing real-world tech solutions — all while continuing to explore gaming, content creation, and innovation.</p>
+              </div>
+              <div class="dot"></div>
+              <div class="image-box">
+                <img src="images/background/SteppingUp.png" alt="University">
+              </div>
+            </div>
+
+            <div class="timeline-item right">
+              <div class="image-box">
+                <img src="images/background/ResilienceThroughAdversity.png" alt="University">
+              </div>
+              <div class="dot"></div>
+              <div class="content">
+                <h3>Resilience Through Adversity <span class="timeline-years">(2020-2024)</span></h3>
+                <p>Graduating during COVID-19 meant missing milestones like prom and a traditional university experience. But I didn't let that slow me down. I spent the pandemic learning new skills, building 3D games in Unreal Engine, creating educational content, and sharpening my C++ and blueprint development — turning isolation into opportunity.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item left">
+              <div class="content">
+                <h3>The Journey Ahead <span class="timeline-years">(2002)</span></h3>2024-Present
+                <p>June 23rd, 2025. I graduate Toronto Metropolitan Univeristy. Writing this made me tear up, a little. I will miss this era of my life. Today, I'm more motivated than ever. I’m excited to keep learning, building, and turning ideas into reality — one step at a time. My goals are clear: to find a role where I can grow, make meaningful contributions, and eventually give back to the family that made this journey possible — starting with buying my mom her dream car.</p>
+              </div>
+              <div class="dot"></div>
+              <div class="image-box">
+                <img src="images/background/JourneyAhead.png" alt="University">
+              </div>
+            </div>
+
+            <div class="timeline-item right">
+              <div class="image-box">
+                <img src="images/background/FUTURE.png" alt="University">
+              </div>
+              <div class="dot"></div>
+              <div class="content">
+                <h3>Future... <span class="timeline-years">(2025-Forever and ever)</span></h3>
+                <p>The future isn't something I plan to wait for — it's something I intend to build. Every project, every challenge, every small victory is a step toward a bigger vision: to innovate fearlessly, to lead with purpose, and to leave a lasting impact on the world around me. My journey is just beginning, and I’m determined to shape the future with creativity, resilience, and a belief that no idea is too bold when passion drives it. This is only the start — and the best is yet to come.</p>
+              </div>
+            </div>
+        
+          </div>
         </section>
+        
+        
     
         <section id="journey">
             <h2>My Journey</h2>
