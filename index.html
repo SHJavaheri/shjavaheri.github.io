@@ -6,7 +6,7 @@
     <title>SH Javaheri</title>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- External Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -45,6 +45,20 @@
           <img src="images/homepage/profile_pic.jpg" alt="Profile Picture" class="profile-picture">
           <h1>Hamid Javaheri</h1>
           <p id="animated-tagline"></p>
+
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/hamidjavaheri/" target="_blank" class="social-icon">
+              <img src="images/social_icons/linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/SHJavaheri" target="_blank" class="social-icon">
+              <img src="images/social_icons/github.png" alt="GitHub">
+            </a>
+            <a href="https://www.instagram.com/realhamidjavaheri/" target="_blank" class="social-icon">
+              <img src="images/social_icons/Instagram.png" alt="Instagram">
+            </a>
+          </div>          
+
+
           <a href="#about" class="hero-button">About Me</a>
         </div>
       </header>
@@ -181,17 +195,19 @@
         <div class="projects-grid">
     
             <!-- Anomaly Detection -->
-            <div class="project-card">
-                <img src="images/projects/AnomalyDetection_Light.png" 
-                    alt="Anomaly Detection" 
-                    class="project-img"
-                    data-light="images/projects/AnomalyDetection_Light.png"
-                    data-dark="images/projects/AnomalyDetection_Dark.png">
-                <div class="project-info">
-                    <h3>Anomaly Detection in AR 🧠</h3>
-                    <p>Real-time ML system built with TensorFlow, OpenCV, and Unity3D using autoencoders to identify anomalies in AR environments.</p>
-                </div>
-            </div>
+            <a href="/projects/anomaly-detection.html" class="project-card">
+              <div class="project-card">
+                  <img src="images/projects/AnomalyDetection_Light.png" 
+                      alt="Anomaly Detection" 
+                      class="project-img"
+                      data-light="images/projects/AnomalyDetection_Light.png"
+                      data-dark="images/projects/AnomalyDetection_Dark.png">
+                  <div class="project-info">
+                      <h3>Anomaly Detection in AR 🧠</h3>
+                      <p>Real-time ML system built with TensorFlow, OpenCV, and Unity3D using autoencoders to identify anomalies in AR environments.</p>
+                  </div>
+              </div>
+            </a>
     
             <!-- ATM System -->
             <div class="project-card">
@@ -412,7 +428,7 @@
       <div class="audio-controls">
         <button id="audioToggle" title="Toggle Sound">🔈</button>
         <div class="slider-wrapper">
-          <input type="range" id="volumeSlider" min="0" max="100" value="10">
+          <input type="range" id="volumeSlider" min="0" max="100" value="5">
         </div>
       </div>
 
@@ -420,6 +436,6 @@
       
 
       <!-- JavaScript -->
-      <script src="script.js"></script>
+      <script src="js/script.js"></script>
   </body>
 </html>
