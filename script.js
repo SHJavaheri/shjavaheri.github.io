@@ -333,4 +333,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
 
+        // Initialize EmailJS (make sure this is BEFORE you send anything)
+        (function() {
+            emailjs.init('gecWJH-I3-MRPCysp'); // Your Public Key here
+        })();
+
+        // Initialize EmailJS
+        (function() {
+            emailjs.init('gecWJH-I3-MRPCysp');
+        })();
+        
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+        
+            formStatus.textContent = "Sending...";
+        
+            const rawMessage = document.getElementById('message').value.trim();
+            const formattedMessage = `<pre>${rawMessage}</pre>`;
+        
+            const now = new Date();
+            const formattedTime = now.toLocaleString('en-US', { 
+            weekday: 'short', 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric', 
+            hour: '2-digit', 
+            minute: '2-digit',
+            hour12: true 
+            });
+        
+            emailjs.send('service_vgzb3g5', 'template_8j8hn8b', {
+            user_email: document.getElementById('user_email').value,
+            user_name: document.getElementById('user_name').value.split('@')[0], // Default name if you don't have a "Name" field
+            subject: document.getElementById('subject').value,
+            message: formattedMessage,
+            time_sent: formattedTime
+            })
+            .then(() => {
+            formStatus.textContent = "✅ Message Sent Successfully!";
+            contactForm.reset();
+            })
+            .catch((error) => {
+            console.error('FAILED...', error);
+            formStatus.textContent = "❌ Failed to Send. Please Try Again.";
+            });
+        });
+        
+
+
 });

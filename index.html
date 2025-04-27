@@ -1,403 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SH Javaheri</title>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
-<body>
-    <!-- Ripple Effect Layer -->
-    <div id="ripple"></div>
 
-    <!-- Flashlight Layer -->
-    <div id="flashlight"></div>
+  <body>
+      <!-- Ripple Effect Layer -->
+      <div id="ripple"></div>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <button id="hamburger" class="hamburger">&#9776;</button>
-      
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#background">Background</a></li>
-          <li><a href="#journey">My Journey</a></li>
-          <li><a href="#contact">Contact Me</a></li>
-        </ul>
-      
-        <button id="darkModeToggle">
-          <span id="modeIcon">☀️</span>
-        </button>
-      </nav> 
+      <!-- Flashlight Layer -->
+      <div id="flashlight"></div>
 
-    <!-- Header Section -->
-    <header class="hero">
-      <canvas id="particles"></canvas> <!-- ADD THIS -->
-      
-      <div class="hero-content">
-        <img src="images/homepage/profile_pic.jpg" alt="Profile Picture" class="profile-picture">
-        <h1>Hamid Javaheri</h1>
-        <p id="animated-tagline"></p>
-        <a href="#about" class="hero-button">About Me</a>
-      </div>
-    </header>
+      <!-- Navigation Bar -->
+      <nav class="navbar">
+          <button id="hamburger" class="hamburger">&#9776;</button>
         
-
-    <!-- Main Content -->
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#background">Background</a></li>
+            <li><a href="#journey">My Journey</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+          </ul>
         
-            <p id="aboutFirstParagraph">
-                Hello, I'm <strong>Hamid Javaheri</strong>, a Computer Engineering graduate and passionate developer focused on creating reliable, efficient, and thoughtfully designed software solutions. I specialize in full-stack development and cloud technologies, with a strong interest in building products that are both technically sound and user-centric.
-            </p>
+          <button id="darkModeToggle">
+            <span id="modeIcon">☀️</span>
+          </button>
+        </nav> 
+
+      <!-- Header Section -->
+      <header class="hero">
+        <canvas id="particles"></canvas> <!-- ADD THIS -->
         
-            <div id="moreAboutMe" class="more-text">
-                <p>
-                    My academic foundation in <strong>Computer Engineering</strong>, combined with hands-on project experience, has shaped my ability to solve complex technical problems with a practical mindset. I believe that great software is built not just with code, but with a deep understanding of user needs, attention to detail, and a commitment to quality.
-                </p>
-                <p>
-                    I have experience in <strong>front-end</strong> and <strong>back-end</strong> development, <strong>cloud</strong> deployment, system design, and project collaboration across diverse teams. My recent work includes full-stack web applications, cloud-based service platforms, and intelligent system integrations.
-                </p>
-                <p>
-                    Beyond formal projects, I have a strong interest in solving everyday challenges through innovation, whether that's developing custom hardware solutions or designing software tools tailored to real needs. These projects reflect my drive to create practical, user-focused solutions when existing ones fall short.
-                </p>
-                <p>
-                    Looking ahead, I aim to continue advancing my skills in cloud engineering, machine learning (AI), full-stack development, and system design, while exploring opportunities that allow me to build impactful, scalable technology. I’m committed to lifelong learning, meaningful innovation, and using technology as a tool to make everyday life better, both for users and for teams I collaborate with.
-                </p>
-            </div>
-        
-            <button id="toggleMoreAboutMe" class="hero-button about-toggle">Keep Reading</button>
-        </section>      
+        <div class="hero-content">
+          <img src="images/homepage/profile_pic.jpg" alt="Profile Picture" class="profile-picture">
+          <h1>Hamid Javaheri</h1>
+          <p id="animated-tagline"></p>
+          <a href="#about" class="hero-button">About Me</a>
+        </div>
+      </header>
+          
 
-        <!-- Skills Section -->
-        <section id="skills">
-          <h2>Skills</h2>
-          <div class="skills-grid">
-            
-            <!-- Programming Languages -->
-            <div class="skills-category">
-              <h3>Programming Languages</h3>
-              <div class="skills-grid">
-                <div class="skill-item"><img src="images/skills/python.png" alt="Python"><span class="skill-name">Python</span></div>
-                <div class="skill-item"><img src="images/skills/c.png" alt="C"><span class="skill-name">C</span></div>
-                <div class="skill-item"><img src="images/skills/java.png" alt="Java"><span class="skill-name">Java</span></div>
-                <div class="skill-item"><img src="images/skills/javascript.png" alt="JavaScript"><span class="skill-name">JavaScript</span></div>
-                <div class="skill-item"><img src="images/skills/html.png" alt="HTML5"><span class="skill-name">HTML5</span></div>
-                <div class="skill-item"><img src="images/skills/css.png" alt="CSS3"><span class="skill-name">CSS3</span></div>
-              </div>
-            </div>
-            
-
-            <div class="skills-category">
-              <h3>Cloud Technologies</h3>
-              <div class="skills-grid">
-                <!-- Cloud Technologies -->
-                <div class="skill-item"><img src="images/skills/aws.png" alt="AWS"><span class="skill-name">AWS</span></div>
-                <div class="skill-item"><img src="images/skills/azure.png" alt="Azure"><span class="skill-name">Azure</span></div>
-                <div class="skill-item"><img src="images/skills/gcp.png" alt="Google Cloud"><span class="skill-name">Google Cloud</span></div>
-              </div>
-            </div>
-
-            <div class="skills-category">
-              <h3>Frameworks & Libraries</h3>
-              <div class="skills-grid">
-                <!-- Frameworks & Libraries -->
-                <div class="skill-item"><img src="images/skills/react.png" alt="React"><span class="skill-name">React</span></div>
-                <div class="skill-item"><img src="images/skills/nextjs.png" alt="Next.js"><span class="skill-name">Next.js</span></div>
-                <div class="skill-item"><img src="images/skills/fastapi.png" alt="FastAPI"><span class="skill-name">FastAPI</span></div>
-                <div class="skill-item"><img src="images/skills/nodejs.png" alt="Node.js"><span class="skill-name">Node.js</span></div>
-                <div class="skill-item"><img src="images/skills/flask.png" alt="Flask"><span class="skill-name">Flask</span></div>
-              </div>
-            </div>
-
-            <div class="skills-category">
-              <h3>Databases</h3>
-              <div class="skills-grid">
-                <!-- Databases -->
-                <div class="skill-item"><img src="images/skills/mongodb.png" alt="MongoDB"><span class="skill-name">MongoDB</span></div>
-                <div class="skill-item"><img src="images/skills/mysql.png" alt="MySQL"><span class="skill-name">MySQL</span></div>
-                <div class="skill-item"><img src="images/skills/sqlite.png" alt="SQLite"><span class="skill-name">SQLite</span></div>
-              </div>
-            </div>
-
-            <div class="skills-category">
-              <h3>Game Development</h3>
-              <div class="skills-grid">
-                <!-- Game Development -->
-                <div class="skill-item"><img src="images/skills/unreal.png" alt="Unreal Engine"><span class="skill-name">Unreal Engine</span></div>
-                <div class="skill-item"><img src="images/skills/unity.png" alt="Unity"><span class="skill-name">Unity</span></div>
-                <div class="skill-item"><img src="images/skills/blender.png" alt="Blender"><span class="skill-name">Blender</span></div>
-              </div>
-            </div>
-
-            <div class="skills-category">
-              <h3>Machine Learning / AI</h3>
-              <div class="skills-grid">
-                <!-- Machine Learning / AI -->
-                <div class="skill-item"><img src="images/skills/tensorflow.png" alt="TensorFlow"><span class="skill-name">TensorFlow</span></div>
-                <div class="skill-item"><img src="images/skills/opencv.png" alt="OpenCV"><span class="skill-name">OpenCV</span></div>
-                <div class="skill-item"><img src="images/skills/pytorch.png" alt="PyTorch"><span class="skill-name">PyTorch</span></div>
-              </div>
-            </div>
-
-            <div class="skills-category">
-              <h3>Design Tools</h3>
-              <div class="skills-grid">
-                <!-- Design Tools -->
-                <div class="skill-item"><img src="images/skills/photoshop.png" alt="Photoshop"><span class="skill-name">Photoshop</span></div>
-                <div class="skill-item"><img src="images/skills/aftereffects.png" alt="AfterEffects"><span class="skill-name">After Effects</span></div>
-                <div class="skill-item"><img src="images/skills/premiere.png" alt="Premiere Pro"><span class="skill-name">Premiere Pro</span></div>
-                <div class="skill-item"><img src="images/skills/figma.png" alt="Figma"><span class="skill-name">Figma</span></div>
-              </div>
-            </div>
-
-            <div class="skills-category">
-              <h3>DevOps / Tools</h3>
-              <div class="skills-grid">
-                <!-- DevOps / Tools -->
-                <div class="skill-item"><img src="images/skills/docker.png" alt="Docker"><span class="skill-name">Docker</span></div>
-                <div class="skill-item"><img src="images/skills/git.png" alt="Git"><span class="skill-name">Git</span></div>
-                <div class="skill-item"><img src="images/skills/github.png" alt="GitHub"><span class="skill-name">GitHub</span></div>
-                <div class="skill-item"><img src="images/skills/rabbitmq.png" alt="RabbitMQ"><span class="skill-name">rabbitmq</span></div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-        
-    </main>
-
-    <section id="projects">
-      <h2>Projects</h2>
-  
-      <div class="projects-grid">
-  
-          <!-- Anomaly Detection -->
-          <div class="project-card">
-              <img src="images/projects/AnomalyDetection_Light.png" 
-                   alt="Anomaly Detection" 
-                   class="project-img"
-                   data-light="images/projects/AnomalyDetection_Light.png"
-                   data-dark="images/projects/AnomalyDetection_Dark.png">
-              <div class="project-info">
-                  <h3>Anomaly Detection in AR 🧠</h3>
-                  <p>Real-time ML system built with TensorFlow, OpenCV, and Unity3D using autoencoders to identify anomalies in AR environments.</p>
-              </div>
-          </div>
-  
-          <!-- ATM System -->
-          <div class="project-card">
-              <img src="images/projects/ATM_Light.png" 
-                   alt="Secure ATM Banking System" 
-                   class="project-img"
-                   data-light="images/projects/ATM_Light.png"
-                   data-dark="images/projects/ATM_Dark.png">
-              <div class="project-info">
-                  <h3>Secure ATM Banking System 🔐</h3>
-                  <p>Java-based ATM client-server system secured with encryption, authentication protocols, and encrypted audit logging.</p>
-              </div>
-          </div>
-  
-          <!-- QuizBot -->
-          <div class="project-card">
-              <img src="images/projects/QuizBot_Light.png" 
-                   alt="QuizBot" 
-                   class="project-img"
-                   data-light="images/projects/QuizBot_Light.png"
-                   data-dark="images/projects/QuizBot_Dark.png">
-              <div class="project-info">
-                  <h3>QuizBot 🤖</h3>
-                  <p>Study companion that generates quizzes from study material using NLP — built to help students prep smarter.</p>
-              </div>
-          </div>
-  
-          <!-- Tubeify -->
-          <div class="project-card">
-              <img src="images/projects/Tubeify_Light.png" 
-                   alt="Tubeify" 
-                   class="project-img"
-                   data-light="images/projects/Tubeify_Light.png"
-                   data-dark="images/projects/Tubeify_Dark.png">
-              <div class="project-info">
-                  <h3>Tubeify 🎵</h3>
-                  <p>MP3/MP4 converter that downloads YouTube content without ads, paywalls, or sketchy sites. Just clean downloads.</p>
-              </div>
-          </div>
-  
-          <!-- Sortify -->
-          <div class="project-card">
-              <img src="images/projects/Sortify_Light.png" 
-                   alt="Sortify" 
-                   class="project-img"
-                   data-light="images/projects/Sortify_Light.png"
-                   data-dark="images/projects/Sortify_Dark.png">
-              <div class="project-info">
-                  <h3>Sortify 🗂️</h3>
-                  <p>Smart file organizer that automatically sorts and categorizes files based on type, reducing digital clutter instantly.</p>
-              </div>
-          </div>
-  
-          <!-- Coming Soon -->
-          <div class="project-card">
-              <img src="images/projects/ComingSoon_Light.png" 
-                   alt="More Projects Coming Soon" 
-                   class="project-img"
-                   data-light="images/projects/ComingSoon_Light.png"
-                   data-dark="images/projects/ComingSoon_Dark.png">
-              <div class="project-info">
-                  <h3>More Coming Soon 🚀</h3>
-                  <p>New projects are always on the way — stay tuned for tools, apps, and experiments I'm currently building.</p>
-              </div>
-          </div>
-  
-      </div>
-  </section>
-
+      <!-- Main Content -->
       <main>
-        <section id="background">
-          <h2>Background</h2>
-          <div class="timeline">
-        
-            <div class="timeline-item right">
-              <div class="image-box">
-                <img src="images/background/HumbleBeginnings.png" alt="University">
+          <section id="about">
+              <h2>About Me</h2>
+          
+              <p id="aboutFirstParagraph">
+                  Hello, I'm <strong>Hamid Javaheri</strong>, a Computer Engineering graduate and passionate developer focused on creating reliable, efficient, and thoughtfully designed software solutions. I specialize in full-stack development and cloud technologies, with a strong interest in building products that are both technically sound and user-centric.
+              </p>
+          
+              <div id="moreAboutMe" class="more-text">
+                  <p>
+                      My academic foundation in <strong>Computer Engineering</strong>, combined with hands-on project experience, has shaped my ability to solve complex technical problems with a practical mindset. I believe that great software is built not just with code, but with a deep understanding of user needs, attention to detail, and a commitment to quality.
+                  </p>
+                  <p>
+                      I have experience in <strong>front-end</strong> and <strong>back-end</strong> development, <strong>cloud</strong> deployment, system design, and project collaboration across diverse teams. My recent work includes full-stack web applications, cloud-based service platforms, and intelligent system integrations.
+                  </p>
+                  <p>
+                      Beyond formal projects, I have a strong interest in solving everyday challenges through innovation, whether that's developing custom hardware solutions or designing software tools tailored to real needs. These projects reflect my drive to create practical, user-focused solutions when existing ones fall short.
+                  </p>
+                  <p>
+                      Looking ahead, I aim to continue advancing my skills in cloud engineering, machine learning (AI), full-stack development, and system design, while exploring opportunities that allow me to build impactful, scalable technology. I’m committed to lifelong learning, meaningful innovation, and using technology as a tool to make everyday life better, both for users and for teams I collaborate with.
+                  </p>
               </div>
-              <div class="dot"></div>   <!-- center dot -->
-              <div class="content">
-                <h3>Humble Beginnings <span class="timeline-years">(2002)</span></h3>
-                <p>Born in Tehran, Iran, I moved to Canada at just 11 months old. My parents, both engineers, rebuilt their lives from scratch, inspiring me with their work ethic. Growing up, I was naturally drawn to shapes, patterns, and numbers — laying the foundation for a lifelong love of math and science.</p>
-              </div>
-            </div>
+          
+              <button id="toggleMoreAboutMe" class="hero-button about-toggle">Keep Reading</button>
+          </section>      
 
-            <div class="timeline-item left">
-              <div class="content">
-                <h3>Curious Early Years <span class="timeline-years">(2007-2010)</span></h3>
-                <p>School was where my love for science, math, and exploration truly took off. Between building legos, playing chess, competing in sports, and watching endless science documentaries, I was a ball of energy — often more interested in creating than sitting still in class. Even then, I started collecting awards in chess, martial arts, and soccer.</p>
+          <!-- Skills Section -->
+          <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+              
+              <!-- Programming Languages -->
+              <div class="skills-category">
+                <h3>Programming Languages</h3>
+                <div class="skills-grid">
+                  <div class="skill-item"><img src="images/skills/python.png" alt="Python"><span class="skill-name">Python</span></div>
+                  <div class="skill-item"><img src="images/skills/c.png" alt="C"><span class="skill-name">C</span></div>
+                  <div class="skill-item"><img src="images/skills/java.png" alt="Java"><span class="skill-name">Java</span></div>
+                  <div class="skill-item"><img src="images/skills/javascript.png" alt="JavaScript"><span class="skill-name">JavaScript</span></div>
+                  <div class="skill-item"><img src="images/skills/html.png" alt="HTML5"><span class="skill-name">HTML5</span></div>
+                  <div class="skill-item"><img src="images/skills/css.png" alt="CSS3"><span class="skill-name">CSS3</span></div>
+                </div>
               </div>
-              <div class="dot"></div>
-              <div class="image-box">
-                <img src="images/background/CuriousEarlyYears.png" alt="University">
-              </div>
-            </div>
+              
 
-            <div class="timeline-item right">
-              <div class="image-box">
-                <img src="images/background/ChildhoodFullOfAction.png" alt="University">
+              <div class="skills-category">
+                <h3>Cloud Technologies</h3>
+                <div class="skills-grid">
+                  <!-- Cloud Technologies -->
+                  <div class="skill-item"><img src="images/skills/aws.png" alt="AWS"><span class="skill-name">AWS</span></div>
+                  <div class="skill-item"><img src="images/skills/azure.png" alt="Azure"><span class="skill-name">Azure</span></div>
+                  <div class="skill-item"><img src="images/skills/gcp.png" alt="Google Cloud"><span class="skill-name">Google Cloud</span></div>
+                </div>
               </div>
-              <div class="dot"></div>
-              <div class="content">
-                <h3>A Childhood Full of Action <span class="timeline-years">(2010-2012)</span></h3>
-                <p>As I grew, my world expanded beyond the classroom. I earned my swimming certifications, reached black belt in martial arts, and racked up several sports medals. Around this time, my best friend and I began dreaming about creating a company that could invent anything — a seed of ambition that’s still alive today.</p>
-              </div>
-            </div>
 
-            <div class="timeline-item left">
-              <div class="content">
-                <h3>The Spark of Innovation <span class="timeline-years">(2012-2016)</span></h3>
-                <p>By the end of elementary school, I was obsessed with mathematics, design, and technology. I explored Photoshop, video editing, 3D modeling, and game development. I also took on leadership roles — serving as president of school clubs and volunteering at community centers — setting the stage for the years ahead.</p>
+              <div class="skills-category">
+                <h3>Frameworks & Libraries</h3>
+                <div class="skills-grid">
+                  <!-- Frameworks & Libraries -->
+                  <div class="skill-item"><img src="images/skills/react.png" alt="React"><span class="skill-name">React</span></div>
+                  <div class="skill-item"><img src="images/skills/nextjs.png" alt="Next.js"><span class="skill-name">Next.js</span></div>
+                  <div class="skill-item"><img src="images/skills/fastapi.png" alt="FastAPI"><span class="skill-name">FastAPI</span></div>
+                  <div class="skill-item"><img src="images/skills/nodejs.png" alt="Node.js"><span class="skill-name">Node.js</span></div>
+                  <div class="skill-item"><img src="images/skills/flask.png" alt="Flask"><span class="skill-name">Flask</span></div>
+                </div>
               </div>
-              <div class="dot"></div>
-              <div class="image-box">
-                <img src="images/background/SparkOfInnovation.png" alt="University">
-              </div>
-            </div>
 
-            <div class="timeline-item right">
-              <div class="image-box">
-                <img src="images/background/FindingMyVoice.png" alt="University">
+              <div class="skills-category">
+                <h3>Databases</h3>
+                <div class="skills-grid">
+                  <!-- Databases -->
+                  <div class="skill-item"><img src="images/skills/mongodb.png" alt="MongoDB"><span class="skill-name">MongoDB</span></div>
+                  <div class="skill-item"><img src="images/skills/mysql.png" alt="MySQL"><span class="skill-name">MySQL</span></div>
+                  <div class="skill-item"><img src="images/skills/sqlite.png" alt="SQLite"><span class="skill-name">SQLite</span></div>
+                </div>
               </div>
-              <div class="dot"></div>   <!-- center dot -->
-              <div class="content">
-                <h3>Finding My Voice <span class="timeline-years">(2016-2018)</span></h3>
-                <p>High school marked a turning point. I found my people — a community that shared my love of learning, leadership, and creativity. I joined leadership teams, tech crew, computer science clubs, and more, fueling my passion for technology, education, and inspiring others. I also traveled, performed, and started creating educational content to reach wider audiences.</p>
-              </div>
-            </div>
 
-            <div class="timeline-item left">
-              <div class="content">
-                <h3>Stepping Up <span class="timeline-years">(2018-2020)</span></h3>
-                <p>Graduating Richmond Green Secondary School. The end of high school, I earned an Olympic Gold Medal certificate in martial arts performance and became a certified swimming instructor and first-aid responder. I tutored advanced math, performed at cultural events, and began developing real-world tech solutions — all while continuing to explore gaming, content creation, and innovation.</p>
+              <div class="skills-category">
+                <h3>Game Development</h3>
+                <div class="skills-grid">
+                  <!-- Game Development -->
+                  <div class="skill-item"><img src="images/skills/unreal.png" alt="Unreal Engine"><span class="skill-name">Unreal Engine</span></div>
+                  <div class="skill-item"><img src="images/skills/unity.png" alt="Unity"><span class="skill-name">Unity</span></div>
+                  <div class="skill-item"><img src="images/skills/blender.png" alt="Blender"><span class="skill-name">Blender</span></div>
+                </div>
               </div>
-              <div class="dot"></div>
-              <div class="image-box">
-                <img src="images/background/SteppingUp.png" alt="University">
-              </div>
-            </div>
 
-            <div class="timeline-item right">
-              <div class="image-box">
-                <img src="images/background/ResilienceThroughAdversity.png" alt="University">
+              <div class="skills-category">
+                <h3>Machine Learning / AI</h3>
+                <div class="skills-grid">
+                  <!-- Machine Learning / AI -->
+                  <div class="skill-item"><img src="images/skills/tensorflow.png" alt="TensorFlow"><span class="skill-name">TensorFlow</span></div>
+                  <div class="skill-item"><img src="images/skills/opencv.png" alt="OpenCV"><span class="skill-name">OpenCV</span></div>
+                  <div class="skill-item"><img src="images/skills/pytorch.png" alt="PyTorch"><span class="skill-name">PyTorch</span></div>
+                </div>
               </div>
-              <div class="dot"></div>
-              <div class="content">
-                <h3>Resilience Through Adversity <span class="timeline-years">(2020-2024)</span></h3>
-                <p>Graduating during COVID-19 meant missing milestones like prom and a traditional university experience. But I didn't let that slow me down. I spent the pandemic learning new skills, building 3D games in Unreal Engine, creating educational content, and sharpening my C++ and blueprint development — turning isolation into opportunity.</p>
-              </div>
-            </div>
 
-            <div class="timeline-item left">
-              <div class="content">
-                <h3>The Journey Ahead <span class="timeline-years">(2002)</span></h3>2024-Present
-                <p>June 23rd, 2025. I graduate Toronto Metropolitan Univeristy. Writing this made me tear up, a little. I will miss this era of my life. Today, I'm more motivated than ever. I’m excited to keep learning, building, and turning ideas into reality — one step at a time. My goals are clear: to find a role where I can grow, make meaningful contributions, and eventually give back to the family that made this journey possible — starting with buying my mom her dream car.</p>
+              <div class="skills-category">
+                <h3>Design Tools</h3>
+                <div class="skills-grid">
+                  <!-- Design Tools -->
+                  <div class="skill-item"><img src="images/skills/photoshop.png" alt="Photoshop"><span class="skill-name">Photoshop</span></div>
+                  <div class="skill-item"><img src="images/skills/aftereffects.png" alt="AfterEffects"><span class="skill-name">After Effects</span></div>
+                  <div class="skill-item"><img src="images/skills/premiere.png" alt="Premiere Pro"><span class="skill-name">Premiere Pro</span></div>
+                  <div class="skill-item"><img src="images/skills/figma.png" alt="Figma"><span class="skill-name">Figma</span></div>
+                </div>
               </div>
-              <div class="dot"></div>
-              <div class="image-box">
-                <img src="images/background/JourneyAhead.png" alt="University">
-              </div>
-            </div>
 
-            <div class="timeline-item right">
-              <div class="image-box">
-                <img src="images/background/FUTURE.png" alt="University">
+              <div class="skills-category">
+                <h3>DevOps / Tools</h3>
+                <div class="skills-grid">
+                  <!-- DevOps / Tools -->
+                  <div class="skill-item"><img src="images/skills/docker.png" alt="Docker"><span class="skill-name">Docker</span></div>
+                  <div class="skill-item"><img src="images/skills/git.png" alt="Git"><span class="skill-name">Git</span></div>
+                  <div class="skill-item"><img src="images/skills/github.png" alt="GitHub"><span class="skill-name">GitHub</span></div>
+                  <div class="skill-item"><img src="images/skills/rabbitmq.png" alt="RabbitMQ"><span class="skill-name">rabbitmq</span></div>
+                </div>
               </div>
-              <div class="dot"></div>
-              <div class="content">
-                <h3>Future... <span class="timeline-years">(2025-Forever and ever)</span></h3>
-                <p>The future isn't something I plan to wait for — it's something I intend to build. Every project, every challenge, every small victory is a step toward a bigger vision: to innovate fearlessly, to lead with purpose, and to leave a lasting impact on the world around me. My journey is just beginning, and I’m determined to shape the future with creativity, resilience, and a belief that no idea is too bold when passion drives it. This is only the start — and the best is yet to come.</p>
-              </div>
+
             </div>
-        
-          </div>
-        </section>
-        
-        
-    
-        <section id="journey">
-            <h2>My Journey</h2>
-            <p>A story of growth, challenges, and milestones I've crossed on my way here.</p>
-        </section>
-    
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>Reach out at: <strong>your.email@example.com</strong></p>
-        </section>
+          </section>
+          
       </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Hamid Javaheri. All rights reserved.</p>
-    </footer>
-
-
-    <!-- Ambient Sound -->
-    <audio id="ambientAudio" loop preload="auto">
-      <source src="sounds/music/ambient.mp3" type="audio/mp3">
-    </audio>
-
-    <!-- Audio Controls -->
-    <div class="audio-controls">
-      <button id="audioToggle" title="Toggle Sound">🔈</button>
-      <div class="slider-wrapper">
-        <input type="range" id="volumeSlider" min="0" max="100" value="10">
-      </div>
-    </div>
-
-    <audio id="clickSound" src="sounds/sfx/mouse_click.mp3" preload="auto"></audio>
+      <section id="projects">
+        <h2>Projects</h2>
     
+        <div class="projects-grid">
+    
+            <!-- Anomaly Detection -->
+            <div class="project-card">
+                <img src="images/projects/AnomalyDetection_Light.png" 
+                    alt="Anomaly Detection" 
+                    class="project-img"
+                    data-light="images/projects/AnomalyDetection_Light.png"
+                    data-dark="images/projects/AnomalyDetection_Dark.png">
+                <div class="project-info">
+                    <h3>Anomaly Detection in AR 🧠</h3>
+                    <p>Real-time ML system built with TensorFlow, OpenCV, and Unity3D using autoencoders to identify anomalies in AR environments.</p>
+                </div>
+            </div>
+    
+            <!-- ATM System -->
+            <div class="project-card">
+                <img src="images/projects/ATM_Light.png" 
+                    alt="Secure ATM Banking System" 
+                    class="project-img"
+                    data-light="images/projects/ATM_Light.png"
+                    data-dark="images/projects/ATM_Dark.png">
+                <div class="project-info">
+                    <h3>Secure ATM Banking System 🔐</h3>
+                    <p>Java-based ATM client-server system secured with encryption, authentication protocols, and encrypted audit logging.</p>
+                </div>
+            </div>
+    
+            <!-- QuizBot -->
+            <div class="project-card">
+                <img src="images/projects/QuizBot_Light.png" 
+                    alt="QuizBot" 
+                    class="project-img"
+                    data-light="images/projects/QuizBot_Light.png"
+                    data-dark="images/projects/QuizBot_Dark.png">
+                <div class="project-info">
+                    <h3>QuizBot 🤖</h3>
+                    <p>Study companion that generates quizzes from study material using NLP — built to help students prep smarter.</p>
+                </div>
+            </div>
+    
+            <!-- Tubeify -->
+            <div class="project-card">
+                <img src="images/projects/Tubeify_Light.png" 
+                    alt="Tubeify" 
+                    class="project-img"
+                    data-light="images/projects/Tubeify_Light.png"
+                    data-dark="images/projects/Tubeify_Dark.png">
+                <div class="project-info">
+                    <h3>Tubeify 🎵</h3>
+                    <p>MP3/MP4 converter that downloads YouTube content without ads, paywalls, or sketchy sites. Just clean downloads.</p>
+                </div>
+            </div>
+    
+            <!-- Sortify -->
+            <div class="project-card">
+                <img src="images/projects/Sortify_Light.png" 
+                    alt="Sortify" 
+                    class="project-img"
+                    data-light="images/projects/Sortify_Light.png"
+                    data-dark="images/projects/Sortify_Dark.png">
+                <div class="project-info">
+                    <h3>Sortify 🗂️</h3>
+                    <p>Smart file organizer that automatically sorts and categorizes files based on type, reducing digital clutter instantly.</p>
+                </div>
+            </div>
+    
+            <!-- Coming Soon -->
+            <div class="project-card">
+                <img src="images/projects/ComingSoon_Light.png" 
+                    alt="More Projects Coming Soon" 
+                    class="project-img"
+                    data-light="images/projects/ComingSoon_Light.png"
+                    data-dark="images/projects/ComingSoon_Dark.png">
+                <div class="project-info">
+                    <h3>More Coming Soon 🚀</h3>
+                    <p>New projects are always on the way — stay tuned for tools, apps, and experiments I'm currently building.</p>
+                </div>
+            </div>
+    
+        </div>
+    </section>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-</body>
+        <main>
+          <section id="background">
+            <h2>Background</h2>
+            <div class="timeline">
+          
+              <div class="timeline-item right">
+                <div class="image-box">
+                  <img src="images/background/HumbleBeginnings.png" alt="University">
+                </div>
+                <div class="dot"></div>   <!-- center dot -->
+                <div class="content">
+                  <h3>Humble Beginnings <span class="timeline-years">(2002)</span></h3>
+                  <p>Born in Tehran, Iran, I moved to Canada at just 11 months old. My parents, both engineers, rebuilt their lives from scratch, inspiring me with their work ethic. Growing up, I was naturally drawn to shapes, patterns, and numbers — laying the foundation for a lifelong love of math and science.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item left">
+                <div class="content">
+                  <h3>Curious Early Years <span class="timeline-years">(2007-2010)</span></h3>
+                  <p>School was where my love for science, math, and exploration truly took off. Between building legos, playing chess, competing in sports, and watching endless science documentaries, I was a ball of energy — often more interested in creating than sitting still in class. Even then, I started collecting awards in chess, martial arts, and soccer.</p>
+                </div>
+                <div class="dot"></div>
+                <div class="image-box">
+                  <img src="images/background/CuriousEarlyYears.png" alt="University">
+                </div>
+              </div>
+
+              <div class="timeline-item right">
+                <div class="image-box">
+                  <img src="images/background/ChildhoodFullOfAction.png" alt="University">
+                </div>
+                <div class="dot"></div>
+                <div class="content">
+                  <h3>A Childhood Full of Action <span class="timeline-years">(2010-2012)</span></h3>
+                  <p>As I grew, my world expanded beyond the classroom. I earned my swimming certifications, reached black belt in martial arts, and racked up several sports medals. Around this time, my best friend and I began dreaming about creating a company that could invent anything — a seed of ambition that’s still alive today.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item left">
+                <div class="content">
+                  <h3>The Spark of Innovation <span class="timeline-years">(2012-2016)</span></h3>
+                  <p>By the end of elementary school, I was obsessed with mathematics, design, and technology. I explored Photoshop, video editing, 3D modeling, and game development. I also took on leadership roles — serving as president of school clubs and volunteering at community centers — setting the stage for the years ahead.</p>
+                </div>
+                <div class="dot"></div>
+                <div class="image-box">
+                  <img src="images/background/SparkOfInnovation.png" alt="University">
+                </div>
+              </div>
+
+              <div class="timeline-item right">
+                <div class="image-box">
+                  <img src="images/background/FindingMyVoice.png" alt="University">
+                </div>
+                <div class="dot"></div>   <!-- center dot -->
+                <div class="content">
+                  <h3>Finding My Voice <span class="timeline-years">(2016-2018)</span></h3>
+                  <p>High school marked a turning point. I found my people — a community that shared my love of learning, leadership, and creativity. I joined leadership teams, tech crew, computer science clubs, and more, fueling my passion for technology, education, and inspiring others. I also traveled, performed, and started creating educational content to reach wider audiences.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item left">
+                <div class="content">
+                  <h3>Stepping Up <span class="timeline-years">(2018-2020)</span></h3>
+                  <p>Graduating Richmond Green Secondary School. The end of high school, I earned an Olympic Gold Medal certificate in martial arts performance and became a certified swimming instructor and first-aid responder. I tutored advanced math, performed at cultural events, and began developing real-world tech solutions — all while continuing to explore gaming, content creation, and innovation.</p>
+                </div>
+                <div class="dot"></div>
+                <div class="image-box">
+                  <img src="images/background/SteppingUp.png" alt="University">
+                </div>
+              </div>
+
+              <div class="timeline-item right">
+                <div class="image-box">
+                  <img src="images/background/ResilienceThroughAdversity.png" alt="University">
+                </div>
+                <div class="dot"></div>
+                <div class="content">
+                  <h3>Resilience Through Adversity <span class="timeline-years">(2020-2024)</span></h3>
+                  <p>Graduating during COVID-19 meant missing milestones like prom and a traditional university experience. But I didn't let that slow me down. I spent the pandemic learning new skills, building 3D games in Unreal Engine, creating educational content, and sharpening my C++ and blueprint development — turning isolation into opportunity.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item left">
+                <div class="content">
+                  <h3>The Journey Ahead <span class="timeline-years">(2002)</span></h3>2024-Present
+                  <p>June 23rd, 2025. I graduate Toronto Metropolitan Univeristy. Writing this made me tear up, a little. I will miss this era of my life. Today, I'm more motivated than ever. I’m excited to keep learning, building, and turning ideas into reality — one step at a time. My goals are clear: to find a role where I can grow, make meaningful contributions, and eventually give back to the family that made this journey possible — starting with buying my mom her dream car.</p>
+                </div>
+                <div class="dot"></div>
+                <div class="image-box">
+                  <img src="images/background/JourneyAhead.png" alt="University">
+                </div>
+              </div>
+
+              <div class="timeline-item right">
+                <div class="image-box">
+                  <img src="images/background/FUTURE.png" alt="University">
+                </div>
+                <div class="dot"></div>
+                <div class="content">
+                  <h3>Future... <span class="timeline-years">(2025-Forever and ever)</span></h3>
+                  <p>The future isn't something I plan to wait for — it's something I intend to build. Every project, every challenge, every small victory is a step toward a bigger vision: to innovate fearlessly, to lead with purpose, and to leave a lasting impact on the world around me. My journey is just beginning, and I’m determined to shape the future with creativity, resilience, and a belief that no idea is too bold when passion drives it. This is only the start — and the best is yet to come.</p>
+                </div>
+              </div>
+          
+            </div>
+          </section>
+          
+          
+      
+          <section id="journey">
+              <h2>My Journey</h2>
+              <p>A story of growth, challenges, and milestones I've crossed on my way here.</p>
+          </section>
+      
+          <section id="contact">
+            <h2>Contact Me</h2>
+          
+            <form id="contact-form">
+              <input type="text" id="user_name" name="user_name" placeholder="Your Name" required>
+              <input type="email" id="user_email" name="user_email" placeholder="Your Email" required>
+              <input type="text" id="subject" name="subject" placeholder="Subject" required>
+              <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>              
+              <button type="submit" class="hero-button">Send Message</button>
+            </form>
+          
+            <div id="form-status"></div>
+          </section>
+          
+        </main>
+
+      <!-- Footer -->
+      <footer>
+          <p>&copy; 2025 Hamid Javaheri. All rights reserved.</p>
+      </footer>
+
+
+      <!-- Ambient Sound -->
+      <audio id="ambientAudio" loop preload="auto">
+        <source src="sounds/music/ambient.mp3" type="audio/mp3">
+      </audio>
+
+      <!-- Audio Controls -->
+      <div class="audio-controls">
+        <button id="audioToggle" title="Toggle Sound">🔈</button>
+        <div class="slider-wrapper">
+          <input type="range" id="volumeSlider" min="0" max="100" value="10">
+        </div>
+      </div>
+
+      <audio id="clickSound" src="sounds/sfx/mouse_click.mp3" preload="auto"></audio>
+      
+
+      <!-- JavaScript -->
+      <script src="script.js"></script>
+  </body>
 </html>

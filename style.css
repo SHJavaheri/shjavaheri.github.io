@@ -712,3 +712,57 @@ header.hero {
     margin: 20px auto;
   }
 }
+
+
+
+
+
+
+
+/* Contact Me Section */
+#contact {
+  background: var(--section-background);
+  margin-bottom: 40px;
+  padding: 30px;
+  scroll-margin-top: 80px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--primary-text-color);
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#contact-form input,
+#contact-form textarea {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: #fff;
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+#form-status {
+  margin-top: 20px;
+  font-weight: bold;
+  color: var(--primary-text-color);
+}
