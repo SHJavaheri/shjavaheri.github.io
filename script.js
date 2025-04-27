@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Animate hero content after page load
+    document.querySelector('.hero-content').classList.add('active');
+
     // Dark Mode Toggle + Ripple
     const toggleButton = document.getElementById('darkModeToggle');
     const modeIcon = document.getElementById('modeIcon');
@@ -128,4 +131,147 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
 
+        // Animated Typing Tagline
+        const taglineElement = document.getElementById('animated-tagline');
+        const taglines = [
+            "Built this site instead of studying. 📚🤓",
+            "Cloud Architect. ☁️🏗️",
+            "Ammar was here. 🧠👀",
+            "I love coding. 💻❤️",
+            "Professional Googler. 🔍👨‍💻",
+            "Fullstack Developer. 🖥️🔧",
+            "Coffee is my compiler. ☕💬",
+            "Ctrl + C, Ctrl + V Expert. 📋🖱️",
+            "Problem Solver. 🧩🛠️",
+            "Music Lover. 🎶🎧",
+            "404: Sleep Not Found. 🛌🚫",
+            "AI Enthusiast. 🤖🚀",
+            "I love learning. 📚🔥",
+            "Drummer. 🥁🎵",
+            "plz hire me... 🙏💼",
+            "Pushing to GitHub like a boss. 🧑‍💻🚀",
+            "Documented my bugs better than my code. 🐛📜",
+            "Still figuring it out. 🤔🛤️",
+            "Dreaming in Python. 🐍💭",
+            "Definitely not AI... or am I? 🤖👻",
+            "StackOverflow disciple. 🧠🧑‍🏫",
+            "Saving the world, one line of code at a time. 🌎💻",
+            "Turning caffeine into code. ☕➡️💻",
+            "Future Tech Wizard. 🧙‍♂️💻",
+            "Building the future, one pixel at a time. 🖥️✨",
+            "Debugging my way through life. 🐞🔍",
+            "Code, coffee, repeat. ☕💻🔁"  
+        ];
+        let taglineIndex = 0;
+        let charIndex = 0;
+        let typing = true;
+    
+        function typeTagline() {
+            const currentTagline = taglines[taglineIndex];
+            if (typing) {
+                taglineElement.textContent = currentTagline.slice(0, ++charIndex);
+                if (charIndex === currentTagline.length) {
+                    typing = false;
+                    setTimeout(typeTagline, 2000); // wait 2 seconds after full tagline
+                    return;
+                }
+            } else {
+                taglineElement.textContent = currentTagline.slice(0, --charIndex);
+                if (charIndex === 0) {
+                    typing = true;
+                    taglineIndex = (taglineIndex + 1) % taglines.length;
+                }
+            }
+            setTimeout(typeTagline, typing ? 80 : 50);
+        }
+    
+        typeTagline();
+
+
+        // Particle Background
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let particlesArray;
+        let mouse = { x: null, y: null };
+        
+        function initParticles() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        
+            particlesArray = [];
+            const numberOfParticles = 150;
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    baseX: 0,
+                    baseY: 0,
+                    size: Math.random() * 2 + 1.5,
+                    speedX: (Math.random() - 0.5) * 1,
+                    speedY: (Math.random() - 0.5) * 1,
+                });
+            }
+        
+            // Store base positions
+            particlesArray.forEach(p => {
+                p.baseX = p.x;
+                p.baseY = p.y;
+            });
+        }
+        
+        function connectParticles() {
+            let opacityThreshold = 100;
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a + 1; b < particlesArray.length; b++) {
+                    let dx = particlesArray[a].x - particlesArray[b].x;
+                    let dy = particlesArray[a].y - particlesArray[b].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < opacityThreshold) {
+                        ctx.strokeStyle = document.body.classList.contains('dark-mode') ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = document.body.classList.contains('dark-mode') ? '#ffffffcc' : '#000000cc';
+        
+            particlesArray.forEach(p => {
+                // Apply small parallax movement based on mouse position
+                const dx = (mouse.x - canvas.width / 2) * 0.0005;
+                const dy = (mouse.y - canvas.height / 2) * 0.0005;                
+        
+                p.x += p.speedX + dx;
+                p.y += p.speedY + dy;
+        
+                // Bounce off edges
+                if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+        
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        
+            connectParticles();
+            requestAnimationFrame(animateParticles);
+        }
+        
+        window.addEventListener('resize', initParticles);
+        
+        // Mouse Move Event
+        window.addEventListener('mousemove', function (event) {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+        
+        // Initialize
+        initParticles();
+        animateParticles();        
 });
