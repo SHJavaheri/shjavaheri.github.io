@@ -406,3 +406,22 @@ body.dark-mode .collaborator {
     transform: translateY(0);
   }
 }
+
+
+
+/* Back Home Button */
+.back-home {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.back-home a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--primary-text-color);
+  transition: color 0.3s ease;
+}
+
+.back-home a:hover {
+  color: var(--accent-color);
+}
