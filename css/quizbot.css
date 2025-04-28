@@ -10,7 +10,7 @@ body {
   /* Hero Section */
   .hero {
     height: 100vh;
-    background: linear-gradient(to right, #74ebd5, #c27cf1);
+    background: linear-gradient(to right, #4954c9, #02cccc);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -327,73 +327,64 @@ body.dark-mode::before {
 
 
   
-/* Collaborators Section */
-.collaborators {
-  padding: 100px 20px;
-  background: #f5f5f5;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
-  margin-top: 100px;
-  text-align: center;
-}
-
-.collaborators h2 {
-  font-size: 2.8rem;
-  margin-bottom: 40px;
-  color: var(--primary-text-color);
-}
-
-.collaborator {
-  background: #ffffff;
-  margin: 20px auto;
-  padding: 20px 30px;
-  max-width: 600px;
-  border-radius: 20px;
-  box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-body.dark-mode .collaborator {
-  color: #dfdddd; /* Slightly softer white for subtitle */
-  background: #302f2f;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-}
-
-
-.collaborator:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 12px 25px rgba(0,0,0,0.15);
-}
-
-.collaborator h3 {
-  margin: 0;
-  font-size: 1.8rem;
-  color: var(--primary-text-color);
-}
-
-.collaborator-links {
-  margin-top: 15px;
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  animation: fadeIn 0.5s ease forwards;
-}
-
-.collaborator.open .collaborator-links {
-  display: flex;
-}
-
-.collaborator-links a {
-  text-decoration: none;
-  font-size: 1.2rem;
-  color: #0077cc;
-  transition: color 0.3s ease;
-}
-
-.collaborator-links a:hover {
-  color: #005999;
-}
+/* Achievements */
+.achievements {
+    padding: 100px 20px;
+    background: #f5f5f5;
+    text-align: center;
+  }
+  
+  .achievements h2 {
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    color: var(--primary-text-color);
+  }
+  
+  .achievement-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .achievement {
+    background: #ffffff;
+    padding: 30px 20px;
+    width: 250px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: popIn 1s ease forwards;
+  }
+  
+  .achievement:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 12px 25px rgba(0,0,0,0.15);
+  }
+  
+  .achievement h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-text-color);
+  }
+  
+  .achievement p {
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+  
+  /* Pop-in Animation */
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
 
 /* Fade-in Animation */
 @keyframes fadeIn {
@@ -406,7 +397,6 @@ body.dark-mode .collaborator {
     transform: translateY(0);
   }
 }
-
 
 
 /* Github Button */
@@ -432,7 +422,6 @@ body.dark-mode .collaborator {
   background: #0077cc; /* darker hover */
   transform: translateY(-3px);
 }
-
 
 
 /* Back Home Button */

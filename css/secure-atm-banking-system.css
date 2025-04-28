@@ -10,7 +10,7 @@ body {
   /* Hero Section */
   .hero {
     height: 100vh;
-    background: linear-gradient(to right, #27dff7, #07f155);
+    background: linear-gradient(to right, #22c3d8, #07f155);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -245,7 +245,7 @@ body.dark-mode::before {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  max-width: 80%;
+  max-width: 70%;
   margin: auto;
   flex-wrap: wrap;
 }
@@ -407,6 +407,30 @@ body.dark-mode .collaborator {
   }
 }
 
+
+/* Github Button */
+.github-button {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.github-button a {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: var(--accent-color);
+  color: #818181;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.github-button a:hover {
+  background: #0077cc; /* darker hover */
+  transform: translateY(-3px);
+}
 
 
 /* Back Home Button */
