@@ -27,20 +27,97 @@ body {
     color: #555;
   }
   
-  /* Project Sections */
-  .project-section {
-    padding: 100px 20px;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    max-width: 800px;
-    margin: auto;
-  }
+/* Project Sections */
+.project-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  padding: 120px 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  max-width: 80%;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.project-section.left .text {
+  order: 1;
+  text-align: left;
+}
+
+.project-section.left .image {
+  order: 2;
+}
+
+.project-section.right .text {
+  order: 2;
+  text-align: right;
+}
+
+.project-section.right .image {
+  order: 1;
+}
+
+.text {
+  flex: 1 1 45%;
+  min-width: 300px;
+  padding: 20px;
+}
+
+.text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.text p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.image {
+  flex: 1 1 45%;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  object-fit: cover;
+}
+
+/* Fade-in when in view */
+.project-section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
   
-  .project-section.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/*Progress Bar*/
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 8px;
+  background: linear-gradient(to right, #74ebd5, #ACB6E5);
+  width: 0%;
+  z-index: 1000;
+  transition: width 0.25s ease-out;
+}
+
+
   
   /* Collaborators */
   .collaborators {
