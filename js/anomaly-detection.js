@@ -76,6 +76,70 @@ document.addEventListener('mousemove', function(e) {
 
 
 
+// Floating Particles in Hero Section
+const canvas = document.getElementById('heroParticles');
+const ctx = canvas.getContext('2d');
+let particlesArray;
+
+function initParticles() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  particlesArray = [];
+
+  const numberOfParticles = 50;
+  for (let i = 0; i < numberOfParticles; i++) {
+    particlesArray.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: Math.random() * 3 + 1,
+      speedX: (Math.random() - 0.5) * 0.5,
+      speedY: (Math.random() - 0.5) * 0.5,
+    });
+  }
+}
+
+function handleParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let i = 0; i < particlesArray.length; i++) {
+    const p = particlesArray[i];
+    p.x += p.speedX;
+    p.y += p.speedY;
+
+    // If particle goes off screen, reposition
+    if (p.x < 0 || p.x > canvas.width || p.y < 0 || p.y > canvas.height) {
+      p.x = Math.random() * canvas.width;
+      p.y = Math.random() * canvas.height;
+      p.size = Math.random() * 3 + 1;
+      p.speedX = (Math.random() - 0.5) * 0.5;
+      p.speedY = (Math.random() - 0.5) * 0.5;
+    }
+
+    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function animateParticles() {
+  handleParticles();
+  requestAnimationFrame(animateParticles);
+}
+
+window.addEventListener('resize', initParticles);
+
+initParticles();
+animateParticles();
+
+
+
+
+
+
+
+
+
 // Ambient Audio Control
 const audio = document.getElementById('ambientAudio');
 const audioToggle = document.getElementById('audioToggle');

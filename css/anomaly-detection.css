@@ -10,7 +10,7 @@ body {
   /* Hero Section */
   .hero {
     height: 100vh;
-    background: linear-gradient(to right, #74ebd5, rgb(194, 124, 241));
+    background: linear-gradient(to right, #74ebd5, #c27cf1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,6 +19,7 @@ body {
   }
   
   .hero-content h1 {
+    font-family: 'Courier New', Courier, monospace;
     font-size: 3rem;
     margin-bottom: 0.5rem;
   }
@@ -27,6 +28,52 @@ body {
     font-size: 1.5rem;
     color: #555;
   }
+
+  .hero-content {
+    animation: heroFadeUp 1.2s ease forwards;
+    opacity: 0;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    opacity: 0.85;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  
+  
+  @keyframes heroFadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }  
+
+  #heroParticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0; /* behind text */
+  }
+  
+
+
+
   
 
 
@@ -38,7 +85,7 @@ body.dark-mode {
 
 /* Hero Section in Dark Mode */
 body.dark-mode .hero {
-  background: linear-gradient(to right, #1e1e1e, #2c2c2c);
+  background: linear-gradient(to right, #2c5a5270, #4d315f73)
 }
 
 /* Project Sections in Dark Mode */
@@ -57,6 +104,28 @@ body.dark-mode .collaborators {
 body.dark-mode #progress-bar {
   background: #00bcd4;
 }
+
+body.dark-mode .hero-title {
+  color: #ffffff; /* Pure white title in dark mode */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6); /* Slight black shadow for readability */
+}
+
+body.dark-mode .hero-subtitle {
+  color: #dddddd; /* Slightly softer white for subtitle */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .text h2 {
+  color: #dddddd; /* Slightly softer white for subtitle */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .text p {
+  color: #dddddd; /* Slightly softer white for subtitle */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+
 
 
 
@@ -92,7 +161,7 @@ body.dark-mode #progress-bar {
 
 
 /* Flashlight Effect */
-body::before {
+body.dark-mode::before {
   content: '';
   position: fixed;
   top: 0;
@@ -100,7 +169,7 @@ body::before {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  background: radial-gradient(circle at var(--cursorX) var(--cursorY), rgba(255,255,255,0.1) 0%, transparent 30%);
+  background: radial-gradient(circle at var(--cursorX) var(--cursorY), rgba(255,255,255,0.08) 0%, transparent 15%);
   z-index: 998;
 }
 
@@ -284,6 +353,13 @@ body::before {
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+body.dark-mode .collaborator {
+  color: #dfdddd; /* Slightly softer white for subtitle */
+  background: #302f2f;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
 
 .collaborator:hover {
   transform: translateY(-5px);
