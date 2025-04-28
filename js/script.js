@@ -2,48 +2,63 @@ document.addEventListener('DOMContentLoaded', () => {
     // Animate hero content after page load
     document.querySelector('.hero-content').classList.add('active');
 
-    // Dark Mode Toggle + Ripple
-    const toggleButton = document.getElementById('darkModeToggle');
-    const modeIcon = document.getElementById('modeIcon');
-    const ripple = document.getElementById('ripple');
+// Dark Mode Toggle + Ripple
+const toggleButton = document.getElementById('darkModeToggle');
+const modeIcon = document.getElementById('modeIcon');
+const ripple = document.getElementById('ripple');
 
-    // Function to update project images based on mode
-    function updateProjectImages() {
-        const isDarkMode = document.body.classList.contains('dark-mode');
-        const projectImages = document.querySelectorAll('.project-img');
+// Function to update project images based on mode
+function updateProjectImages() {
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    const projectImages = document.querySelectorAll('.project-img');
 
-        projectImages.forEach(img => {
-            if (isDarkMode) {
-                img.src = img.getAttribute('data-dark');
-            } else {
-                img.src = img.getAttribute('data-light');
-            }
-        });
-    }
-
-    toggleButton.addEventListener('click', () => {
-        ripple.style.transition = 'none';
-        ripple.style.transform = 'scale(0)';
-        ripple.style.opacity = '0.5';
-
-        void ripple.offsetWidth;
-
-        ripple.style.transition = 'transform 0.8s ease-out, opacity 0.8s ease-out';
-        ripple.style.transform = 'scale(50)';
-        ripple.style.opacity = '0';
-
-        setTimeout(() => {
-            document.body.classList.toggle('dark-mode');
-
-            if (document.body.classList.contains('dark-mode')) {
-                modeIcon.textContent = "🌙"; 
-            } else {
-                modeIcon.textContent = "☀️"; 
-            }
-
-            updateProjectImages(); // Update project images after theme switch
-        }, 300);
+    projectImages.forEach(img => {
+        if (isDarkMode) {
+            img.src = img.getAttribute('data-dark');
+        } else {
+            img.src = img.getAttribute('data-light');
+        }
     });
+}
+
+// On page load, apply saved theme
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    if (modeIcon) modeIcon.textContent = "🌙";
+} else {
+    document.body.classList.remove('dark-mode');
+    if (modeIcon) modeIcon.textContent = "☀️";
+}
+updateProjectImages(); // Update images on page load based on theme
+
+toggleButton.addEventListener('click', () => {
+    ripple.style.transition = 'none';
+    ripple.style.transform = 'scale(0)';
+    ripple.style.opacity = '0.5';
+
+    // Force reflow (restart animation)
+    void ripple.offsetWidth;
+
+    ripple.style.transition = 'transform 0.8s ease-out, opacity 0.8s ease-out';
+    ripple.style.transform = 'scale(50)';
+    ripple.style.opacity = '0';
+
+    setTimeout(() => {
+        document.body.classList.toggle('dark-mode');
+
+        if (document.body.classList.contains('dark-mode')) {
+            modeIcon.textContent = "🌙"; 
+            localStorage.setItem('theme', 'dark'); // Save new theme
+        } else {
+            modeIcon.textContent = "☀️"; 
+            localStorage.setItem('theme', 'light'); // Save new theme
+        }
+
+        updateProjectImages(); // Update images after theme switch
+    }, 300);
+});
+
 
     // About Me: Smooth "Keep Reading" Expand/Collapse
     const toggleButtonAbout = document.getElementById('toggleMoreAboutMe');

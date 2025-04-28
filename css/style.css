@@ -462,13 +462,13 @@ header.hero {
 
 .hero-content h1 {
   font-size: 4rem;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   color: var(--primary-text-color);
 }
 
 .hero-content p {
   font-size: 1.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   color: var(--primary-text-color);
 }
 
@@ -489,11 +489,19 @@ header.hero {
   color: #000;
 }
 
+#small-message {
+  font-size: 0.80rem;
+  color: var(--primary-text-color);
+  margin-top: 0px;
+  opacity: 0.8; /* Slightly faded */
+}
+
+
 /* Animated Tagline Section */
 #animated-tagline {
   font-size: 1.5rem;
   font-weight: 500;
-  margin-top: 10px;
+  margin-bottom: 10px;
   color: var(--primary-text-color);
   letter-spacing: 1px;
   white-space: nowrap;
