@@ -275,7 +275,7 @@ main {
 
 section {
   background: var(--section-background);
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   padding: 30px;
   scroll-margin-top: 80px;
   border-radius: 10px;
@@ -286,7 +286,7 @@ section {
 /* Skills Section */
 #skills {
 background: var(--section-background);
-margin: 60px auto;
+margin: 10px auto;
 padding: 40px 20px;
 text-align: center;
 border-radius: 12px;
@@ -669,7 +669,7 @@ font-size: 0.95rem;
 }
 
 
-/* My Journey Timeline Section */
+/* Background Timeline Section */
 #background {
 padding: 80px 20px;
 text-align: center;
@@ -755,6 +755,83 @@ transform: translateY(0);
 
 
 
+/* Education Section */
+.education {
+  padding: 20px 20px;
+  max-width: 1100px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.education h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 60px;
+  color: var(--primary-text-color);
+}
+
+.education-entry {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 30px;
+  border-left: 6px solid var(--accent-color);
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  margin-bottom: 40px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.education-entry:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.edu-left {
+  flex: 1 1 250px;
+}
+
+.edu-left h3 {
+  font-size: 1.4rem;
+  margin: 0;
+  color: var(--primary-text-color);
+}
+
+.edu-left .degree {
+  font-weight: 500;
+  margin-top: 6px;
+  color: var(--accent-color);
+}
+
+.edu-left .year {
+  font-size: 0.95rem;
+  color: #888;
+}
+
+.edu-right {
+  flex: 2 1 500px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--secondary-text-color);
+}
+
+/* Dark Mode Styling */
+body.dark-mode .education-entry {
+  background: #1e1e1e;
+  border-left-color: #4fc3f7;
+}
+
+body.dark-mode .edu-left h3,
+body.dark-mode .edu-left .degree,
+body.dark-mode .edu-right,
+body.dark-mode .education h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .edu-left .year {
+  color: #aaa;
+}
 
 
 

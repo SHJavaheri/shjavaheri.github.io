@@ -166,6 +166,7 @@ toggleButton.addEventListener('click', () => {
         const taglineElement = document.getElementById('animated-tagline');
         const taglines = [
             "Built this site instead of studying. 📚🤓",
+            "Blake was here. 🍔",
             "Cloud Architect. ☁️🏗️",
             "Ammar was here. 🧠👀",
             "I love coding. 💻❤️",
@@ -173,6 +174,7 @@ toggleButton.addEventListener('click', () => {
             "Fullstack Developer. 🖥️🔧",
             "Coffee is my compiler. ☕💬",
             "Ctrl + C, Ctrl + V Expert. 📋🖱️",
+            "Juan Miguel Montefalcon Mercado was here. 🏳️‍🌈",
             "Problem Solver. 🧩🛠️",
             "Music Lover. 🎶🎧",
             "404: Sleep Not Found. 🛌🚫",
@@ -191,7 +193,8 @@ toggleButton.addEventListener('click', () => {
             "Future Tech Wizard. 🧙‍♂️💻",
             "Building the future, one pixel at a time. 🖥️✨",
             "Debugging my way through life. 🐞🔍",
-            "Code, coffee, repeat. ☕💻🔁"  
+            "Code, coffee, repeat. ☕💻🔁",
+            "Nicole was here. 👺",
         ];
         let taglineIndex = 0;
         let charIndex = 0;
@@ -504,5 +507,18 @@ toggleButton.addEventListener('click', () => {
         setInterval(drawClock, 1000);
         drawClock();
         
+
+
+        // Fade in education entries on scroll
+        const educationSections = document.querySelectorAll('.education-entry');
+
+        window.addEventListener('scroll', () => {
+        educationSections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+            section.classList.add('fade-in');
+            }
+        });
+    });
 
 });
