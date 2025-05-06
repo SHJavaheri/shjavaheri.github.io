@@ -860,6 +860,15 @@ font-weight: bold;
 color: var(--primary-text-color);
 }
 
+.availability-hours {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: var(--primary-text-color);
+  text-align: center;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
 
 
 /* Contact Me Section */

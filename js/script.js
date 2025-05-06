@@ -437,8 +437,8 @@ toggleButton.addEventListener('click', () => {
             const seconds = est.getSeconds();
         
             const isWeekend = (est.getDay() === 0 || est.getDay() === 6); // Sunday=0, Saturday=6
-            const availableStart = isWeekend ? 10 : 9;
-            const availableEnd = isWeekend ? 18 : 21;
+            const availableStart = isWeekend ? 10 : 9; // 10 AM to 8 PM on weekends, 9 AM to 10 PM on weekdays
+            const availableEnd = isWeekend ? 20 : 22; // 10 AM to 8 PM on weekends, 9 AM to 10 PM on weekdays
         
             const isAvailable = hours >= availableStart && hours < availableEnd;
         
