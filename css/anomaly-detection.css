@@ -73,6 +73,38 @@ body {
   
 
 
+/* Back Button */
+.back-home-sticky {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 10px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 999;
+}
+
+.back-home-sticky:hover {
+  background-color: #ff4e4e;
+  transform: scale(1.1);
+}
+
+/* DARK MODE support */
+body.dark-mode .back-home-sticky {
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
 
   
 

@@ -7,38 +7,45 @@
   <link rel="stylesheet" href="/css/anomaly-detection.css">
 </head>
 <body>
+  <!-- Back Button -->
+  <a href="/" class="back-home-sticky" title="Back to Home">⬅️</a>
+
+
   <!-- Dark Mode Toggle Button + Ripple -->
   <button id="darkModeToggle">
     <span id="modeIcon">☀️</span>
   </button>
   <div id="ripple"></div>
 
-<!-- Ambient Sound -->
-<audio id="ambientAudio" loop preload="auto">
-  <source src="/sounds/music/ambient.mp3" type="audio/mp3">
-</audio>
 
-<!-- Audio Controls -->
-<div class="audio-controls">
-  <button id="audioToggle" title="Toggle Sound">🔈</button>
-  <div class="slider-wrapper">
-    <input type="range" id="volumeSlider" min="0" max="100" value="5">
-  </div>
-</div>
+  <!-- Ambient Sound -->
+  <audio id="ambientAudio" loop preload="auto">
+    <source src="/sounds/music/ambient.mp3" type="audio/mp3">
+  </audio>
 
-<!-- Mouse Click Sound -->
-<audio id="clickSound" src="/sounds/sfx/mouse_click.mp3" preload="auto"></audio>
 
-  <div id="progress-bar"></div>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <canvas id="heroParticles"></canvas>
-    <div class="hero-content">
-      <h1 class="hero-title">Anomaly Detection in Augmented Reality</h1>
-      <p class="hero-subtitle">Unity3D Synthetic Data • TensorFlow AI • Real-Time UI</p>
+  <!-- Audio Controls -->
+  <div class="audio-controls">
+    <button id="audioToggle" title="Toggle Sound">🔈</button>
+    <div class="slider-wrapper">
+      <input type="range" id="volumeSlider" min="0" max="100" value="5">
     </div>
-  </section>
+  </div>
+
+
+  <!-- Mouse Click Sound -->
+  <audio id="clickSound" src="/sounds/sfx/mouse_click.mp3" preload="auto"></audio>
+
+    <div id="progress-bar"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <canvas id="heroParticles"></canvas>
+      <div class="hero-content">
+        <h1 class="hero-title">Anomaly Detection in Augmented Reality</h1>
+        <p class="hero-subtitle">Unity3D Synthetic Data • TensorFlow AI • Real-Time UI</p>
+      </div>
+    </section>
   
 
   <!-- Scroll Sections -->
