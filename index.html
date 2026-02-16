@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SH Javaheri</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
 
@@ -21,6 +25,7 @@
 
       <!-- Navigation Bar -->
       <nav class="navbar">
+        <div class="navbar-content">
           <button id="hamburger" class="hamburger">&#9776;</button>
         
           <ul class="nav-links">
@@ -34,33 +39,85 @@
           </ul>
         
           <button id="darkModeToggle">
-            <span id="modeIcon">☀️</span>
+            <span id="modeIcon">&#9728;</span>
           </button>
-        </nav> 
+        </div>
+      </nav> 
 
       <!-- Header Section -->
       <header class="hero">
-        <canvas id="particles"></canvas> <!-- ADD THIS -->
+        <div class="hero-atmosphere"></div>
+        <canvas id="particles"></canvas>
         
         <div class="hero-content">
-          <img src="images/homepage/profile_pic.jpg" alt="Profile Picture" class="profile-picture">
-          <h1>Hamid Javaheri</h1>
-          <p id="small-message">click anywhere to play ambient music!</p>
-          <p id="animated-tagline"></p>
+          <div class="hero-copy">
+            <div class="hero-eyebrow">
+              <span class="eyebrow-pill">At CIBC · Application Developer</span>
+              <p class="eyebrow-headline">Cloud-native builder &amp; storyteller</p>
+              <p class="eyebrow-subtext">Shipping resilient financial apps with a dash of ambient design and radical clarity.</p>
+            </div>
 
-          <div class="social-icons">
-            <a href="https://www.linkedin.com/in/hamidjavaheri/" target="_blank" class="social-icon">
-              <img src="images/social_icons/linkedin.png" alt="LinkedIn">
-            </a>
-            <a href="https://github.com/SHJavaheri" target="_blank" class="social-icon">
-              <img src="images/social_icons/github.png" alt="GitHub">
-            </a>
-            <a href="https://www.instagram.com/realhamidjavaheri/" target="_blank" class="social-icon">
-              <img src="images/social_icons/Instagram.png" alt="Instagram">
-            </a>
+            <div class="profile-wrapper">
+              <img src="images/homepage/profile_pic.jpg" alt="Profile Picture" class="profile-picture">
+              <span class="status-chip">Now accepting new collaborations</span>
+            </div>
+            <h1>Hamid Javaheri</h1>
+            <p class="hero-subtitle">Designing resilient full-stack systems, crafting ambient experiences, and translating bold ideas into production-ready software.</p>
+            <p id="small-message">psst… tap anywhere to let the ambient music fall in.</p>
+            <p id="animated-tagline"></p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="hero-button primary">View Featured Work</a>
+              <a href="#contact" class="hero-button ghost">Book a quick chat</a>
+            </div>
+            <div class="hero-tags">
+              <span>Full-stack</span>
+              <span>Cloud-native</span>
+              <span>Experience Design</span>
+              <span>System Thinking</span>
+            </div>
+            <div class="social-icons">
+              <a href="https://www.linkedin.com/in/hamidjavaheri/" target="_blank" class="social-icon">
+                <img src="images/social_icons/linkedin.png" alt="LinkedIn">
+              </a>
+              <a href="https://github.com/SHJavaheri" target="_blank" class="social-icon">
+                <img src="images/social_icons/github.png" alt="GitHub">
+              </a>
+              <a href="https://www.instagram.com/realhamidjavaheri/" target="_blank" class="social-icon">
+                <img src="images/social_icons/Instagram.png" alt="Instagram">
+              </a>
+            </div>
           </div>
 
-          <a href="#about" class="hero-button">About Me</a>
+          <div class="hero-panel" aria-label="Highlights">
+            <div class="panel-card">
+              <p>Availability</p>
+              <strong>Currently open for thoughtful engineering partners</strong>
+              <span>EDT/EST · 9am–10pm weekdays / 10am–8pm weekends</span>
+              <div class="panel-progress" aria-hidden="true"></div>
+            </div>
+            <div class="panel-card panel-focus">
+              <p>Current focus</p>
+              <div class="focus-grid">
+                <div class="focus-item">
+                  <strong>CIBC · Application Developer</strong>
+                  <span>Full-time at CIBC building resilient banking surfaces as Software Engineer — Application Developer.</span>
+                </div>
+                <div class="focus-item">
+                  <strong>FirstLine · Personal build</strong>
+                  <span>Crafting FirstLine so people can find lawyers, agents, accountants, and other pros in seconds.</span>
+                </div>
+                <div class="focus-item">
+                  <strong>Sushi focus</strong>
+                  <span>Eating sushi by day, obsessing over it by night—yes, the roll count matters.</span>
+                </div>
+              </div>
+              <div class="focus-meter" aria-hidden="true">
+                <span class="focus-meter-progress"></span>
+              </div>
+              <p class="focus-note">Signal manually tuned to where energy actually goes right now.</p>
+            </div>
+          </div>
         </div>
       </header>
           
@@ -71,21 +128,26 @@
               <h2>About Me</h2>
           
               <p id="aboutFirstParagraph">
-                  Hello, I'm <strong>Hamid Javaheri</strong>, a Computer Engineering graduate and passionate developer focused on creating reliable, efficient, and thoughtfully designed software solutions. I specialize in full-stack development and cloud technologies, with a strong interest in building products that are both technically sound and user-centric.
+                  Hello, I’m <strong>Hamid Javaheri</strong>, a Software Engineer Application Developer at <strong>CIBC</strong> where I help design and deliver secure, scalable experiences for banking customers and advisors. My day-to-day work bridges product intuition with disciplined engineering, making sure every feature in the application suite feels dependable and polished.
               </p>
           
               <div id="moreAboutMe" class="more-text">
                   <p>
-                      My academic foundation in <strong>Computer Engineering</strong>, combined with hands-on project experience, has shaped my ability to solve complex technical problems with a practical mindset. I believe that great software is built not just with code, but with a deep understanding of user needs, attention to detail, and a commitment to quality.
+                      I graduated from Toronto Metropolitan University (formerly Ryerson University) with a degree in <strong>Computer Engineering</strong>, and I still draw on that systems-minded foundation. Every semester, as well as my capstone project, pushed me to balance architecture thinking with real constraints, which is the same lens I keep on today’s projects.
                   </p>
                   <p>
-                      I have experience in <strong>front-end</strong> and <strong>back-end</strong> development, <strong>cloud</strong> deployment, system design, and project collaboration across diverse teams. My recent work includes full-stack web applications, cloud-based service platforms, and intelligent system integrations.
+                      At CIBC I focus on application development, working with my team to build secure, and reliable experiences for our consumers.
                   </p>
+                  <div class="about-highlights">
+                      <p class="eyebrow">What fuels the work</p>
+                      <ul>
+                          <li><strong>Reliable delivery:</strong> Deep collaboration with product, security, and QA to keep releases smooth while still exploring better tooling.</li>
+                          <li><strong>Systems clarity:</strong> I prefer building on shared abstractions so new features slot in cleanly instead of creating brittle patches.</li>
+                          <li><strong>Human-first code:</strong> Every line of logic is weighed against whether it keeps the experience trustworthy and intuitive for real people.</li>
+                      </ul>
+                  </div>
                   <p>
-                      Beyond formal projects, I have a strong interest in solving everyday challenges through innovation, whether that's developing custom hardware solutions or designing software tools tailored to real needs. These projects reflect my drive to create practical, user-focused solutions when existing ones fall short.
-                  </p>
-                  <p>
-                      Looking ahead, I aim to continue advancing my skills in cloud engineering, machine learning (AI), full-stack development, and system design, while exploring opportunities that allow me to build impactful, scalable technology. I’m committed to lifelong learning, meaningful innovation, and using technology as a tool to make everyday life better, both for users and for teams I collaborate with.
+                      When I’m not refining release pipelines or mentoring teammates, I keep exploring fintech tooling, cloud-native observability, and ways to help teams move faster without losing craft. Software that feels human, trustworthy, and fearless enough to evolve, that’s the work that keeps me energized.
                   </p>
               </div>
           
@@ -93,98 +155,75 @@
           </section>      
 
           <!-- Skills Section -->
-          <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-              
-              <!-- Programming Languages -->
-              <div class="skills-category">
-                <h3>Programming Languages</h3>
-                <div class="skills-grid">
-                  <div class="skill-item"><img src="images/skills/python.png" alt="Python"><span class="skill-name">Python</span></div>
-                  <div class="skill-item"><img src="images/skills/c.png" alt="C"><span class="skill-name">C</span></div>
-                  <div class="skill-item"><img src="images/skills/java.png" alt="Java"><span class="skill-name">Java</span></div>
-                  <div class="skill-item"><img src="images/skills/javascript.png" alt="JavaScript"><span class="skill-name">JavaScript</span></div>
-                  <div class="skill-item"><img src="images/skills/html.png" alt="HTML5"><span class="skill-name">HTML5</span></div>
-                  <div class="skill-item"><img src="images/skills/css.png" alt="CSS3"><span class="skill-name">CSS3</span></div>
-                </div>
-              </div>
-              
+          <section id="skills" class="skills-section">
+            <div class="skills-heading">
+              <p class="eyebrow">Crafted experiences</p>
+              <h2>Skills &amp; Tooling</h2>
+              <p>
+                From resilient backend systems to ambient interfaces, I build across the stack and orchestrate the people, systems, and tooling that keep products moving forward.
+              </p>
+            </div>
 
-              <div class="skills-category">
-                <h3>Cloud Technologies</h3>
-                <div class="skills-grid">
-                  <!-- Cloud Technologies -->
-                  <div class="skill-item"><img src="images/skills/aws.png" alt="AWS"><span class="skill-name">AWS</span></div>
-                  <div class="skill-item"><img src="images/skills/azure.png" alt="Azure"><span class="skill-name">Azure</span></div>
-                  <div class="skill-item"><img src="images/skills/gcp.png" alt="Google Cloud"><span class="skill-name">Google Cloud</span></div>
+            <div class="skills-card-grid">
+              <article class="skills-card">
+                <div class="skills-card-heading">
+                  <span class="skills-card-index">01</span>
+                  <h3>Programming Languages</h3>
                 </div>
-              </div>
-
-              <div class="skills-category">
-                <h3>Frameworks & Libraries</h3>
-                <div class="skills-grid">
-                  <!-- Frameworks & Libraries -->
-                  <div class="skill-item"><img src="images/skills/react.png" alt="React"><span class="skill-name">React</span></div>
-                  <div class="skill-item"><img src="images/skills/nextjs.png" alt="Next.js"><span class="skill-name">Next.js</span></div>
-                  <div class="skill-item"><img src="images/skills/fastapi.png" alt="FastAPI"><span class="skill-name">FastAPI</span></div>
-                  <div class="skill-item"><img src="images/skills/nodejs.png" alt="Node.js"><span class="skill-name">Node.js</span></div>
-                  <div class="skill-item"><img src="images/skills/flask.png" alt="Flask"><span class="skill-name">Flask</span></div>
+                <div class="skills-chip-grid">
+                  <div class="skill-chip"><img src="images/skills/python.png" alt="Python"><span>Python</span></div>
+                  <div class="skill-chip"><img src="images/skills/c.png" alt="C"><span>C / C++</span></div>
+                  <div class="skill-chip"><img src="images/skills/java.png" alt="Java"><span>Java</span></div>
+                  <div class="skill-chip"><img src="images/skills/javascript.png" alt="JavaScript"><span>JavaScript</span></div>
+                  <div class="skill-chip"><img src="images/skills/html.png" alt="HTML5"><span>HTML5</span></div>
+                  <div class="skill-chip"><img src="images/skills/css.png" alt="CSS3"><span>CSS3</span></div>
                 </div>
-              </div>
+              </article>
 
-              <div class="skills-category">
-                <h3>Databases</h3>
-                <div class="skills-grid">
-                  <!-- Databases -->
-                  <div class="skill-item"><img src="images/skills/mongodb.png" alt="MongoDB"><span class="skill-name">MongoDB</span></div>
-                  <div class="skill-item"><img src="images/skills/mysql.png" alt="MySQL"><span class="skill-name">MySQL</span></div>
-                  <div class="skill-item"><img src="images/skills/sqlite.png" alt="SQLite"><span class="skill-name">SQLite</span></div>
+              <article class="skills-card">
+                <div class="skills-card-heading">
+                  <span class="skills-card-index">02</span>
+                  <h3>Cloud &amp; Systems</h3>
                 </div>
-              </div>
-
-              <div class="skills-category">
-                <h3>Game Development</h3>
-                <div class="skills-grid">
-                  <!-- Game Development -->
-                  <div class="skill-item"><img src="images/skills/unreal.png" alt="Unreal Engine"><span class="skill-name">Unreal Engine</span></div>
-                  <div class="skill-item"><img src="images/skills/unity.png" alt="Unity"><span class="skill-name">Unity</span></div>
-                  <div class="skill-item"><img src="images/skills/blender.png" alt="Blender"><span class="skill-name">Blender</span></div>
+                <div class="skills-chip-grid">
+                  <div class="skill-chip"><img src="images/skills/aws.png" alt="AWS"><span>AWS</span></div>
+                  <div class="skill-chip"><img src="images/skills/azure.png" alt="Azure"><span>Azure</span></div>
+                  <div class="skill-chip"><img src="images/skills/gcp.png" alt="Google Cloud"><span>Google Cloud</span></div>
+                  <div class="skill-chip"><img src="images/skills/docker.png" alt="Docker"><span>Docker</span></div>
+                  <div class="skill-chip"><img src="images/skills/git.png" alt="Git"><span>Git</span></div>
+                  <div class="skill-chip"><img src="images/skills/github.png" alt="GitHub"><span>GitHub</span></div>
                 </div>
-              </div>
+              </article>
 
-              <div class="skills-category">
-                <h3>Machine Learning / AI</h3>
-                <div class="skills-grid">
-                  <!-- Machine Learning / AI -->
-                  <div class="skill-item"><img src="images/skills/tensorflow.png" alt="TensorFlow"><span class="skill-name">TensorFlow</span></div>
-                  <div class="skill-item"><img src="images/skills/opencv.png" alt="OpenCV"><span class="skill-name">OpenCV</span></div>
-                  <div class="skill-item"><img src="images/skills/pytorch.png" alt="PyTorch"><span class="skill-name">PyTorch</span></div>
+              <article class="skills-card">
+                <div class="skills-card-heading">
+                  <span class="skills-card-index">03</span>
+                  <h3>Frameworks &amp; Platforms</h3>
                 </div>
-              </div>
-
-              <div class="skills-category">
-                <h3>Design Tools</h3>
-                <div class="skills-grid">
-                  <!-- Design Tools -->
-                  <div class="skill-item"><img src="images/skills/photoshop.png" alt="Photoshop"><span class="skill-name">Photoshop</span></div>
-                  <div class="skill-item"><img src="images/skills/aftereffects.png" alt="AfterEffects"><span class="skill-name">After Effects</span></div>
-                  <div class="skill-item"><img src="images/skills/premiere.png" alt="Premiere Pro"><span class="skill-name">Premiere Pro</span></div>
-                  <div class="skill-item"><img src="images/skills/figma.png" alt="Figma"><span class="skill-name">Figma</span></div>
+                <div class="skills-chip-grid">
+                  <div class="skill-chip"><img src="images/skills/react.png" alt="React"><span>React</span></div>
+                  <div class="skill-chip"><img src="images/skills/nextjs.png" alt="Next.js"><span>Next.js</span></div>
+                  <div class="skill-chip"><img src="images/skills/fastapi.png" alt="FastAPI"><span>FastAPI</span></div>
+                  <div class="skill-chip"><img src="images/skills/nodejs.png" alt="Node.js"><span>Node.js</span></div>
+                  <div class="skill-chip"><img src="images/skills/flask.png" alt="Flask"><span>Flask</span></div>
+                  <div class="skill-chip"><img src="images/skills/unity.png" alt="Unity"><span>Unity</span></div>
                 </div>
-              </div>
+              </article>
 
-              <div class="skills-category">
-                <h3>DevOps / Tools</h3>
-                <div class="skills-grid">
-                  <!-- DevOps / Tools -->
-                  <div class="skill-item"><img src="images/skills/docker.png" alt="Docker"><span class="skill-name">Docker</span></div>
-                  <div class="skill-item"><img src="images/skills/git.png" alt="Git"><span class="skill-name">Git</span></div>
-                  <div class="skill-item"><img src="images/skills/github.png" alt="GitHub"><span class="skill-name">GitHub</span></div>
-                  <div class="skill-item"><img src="images/skills/rabbitmq.png" alt="RabbitMQ"><span class="skill-name">rabbitmq</span></div>
+              <article class="skills-card">
+                <div class="skills-card-heading">
+                  <span class="skills-card-index">04</span>
+                  <h3>Creative &amp; Intelligent Systems</h3>
                 </div>
-              </div>
-
+                <div class="skills-chip-grid">
+                  <div class="skill-chip"><img src="images/skills/figma.png" alt="Figma"><span>Figma</span></div>
+                  <div class="skill-chip"><img src="images/skills/photoshop.png" alt="Photoshop"><span>Photoshop</span></div>
+                  <div class="skill-chip"><img src="images/skills/aftereffects.png" alt="After Effects"><span>After Effects</span></div>
+                  <div class="skill-chip"><img src="images/skills/premiere.png" alt="Premiere Pro"><span>Premiere Pro</span></div>
+                  <div class="skill-chip"><img src="images/skills/tensorflow.png" alt="TensorFlow"><span>TensorFlow</span></div>
+                  <div class="skill-chip"><img src="images/skills/pytorch.png" alt="PyTorch"><span>PyTorch</span></div>
+                </div>
+              </article>
             </div>
           </section>
           
@@ -271,19 +310,6 @@
               <p>Smart file organizer that automatically sorts and categorizes files based on type, reducing digital clutter instantly.</p>
             </div>
           </a>
-      
-          <!-- Coming Soon -->
-          <div class="project-card">
-            <img src="images/projects/ComingSoon_Light.png" 
-                 alt="More Projects Coming Soon" 
-                 class="project-img"
-                 data-light="images/projects/ComingSoon_Light.png"
-                 data-dark="images/projects/ComingSoon_Dark.png">
-            <div class="project-info">
-              <h3>More Coming Soon 🚀</h3>
-              <p>New projects are always on the way — stay tuned for tools, apps, and experiments I'm currently building.</p>
-            </div>
-          </div>
     
         </div>
     </section>
@@ -372,7 +398,7 @@
 
               <div class="timeline-item left">
                 <div class="content">
-                  <h3>The Journey Ahead <span class="timeline-years">(2002)</span></h3>2024-Present
+                  <h3>The Journey Ahead <span class="timeline-years">(2024)</span></h3>2024-Present
                   <p>June 23rd, 2025. I graduate Toronto Metropolitan Univeristy. Writing this made me tear up, a little. I will miss this era of my life. Today, I'm more motivated than ever. I’m excited to keep learning, building, and turning ideas into reality — one step at a time. My goals are clear: to find a role where I can grow, make meaningful contributions, and eventually give back to the family that made this journey possible — starting with buying my mom her dream car.</p>
                 </div>
                 <div class="dot"></div>
@@ -387,7 +413,7 @@
                 </div>
                 <div class="dot"></div>
                 <div class="content">
-                  <h3>Future... <span class="timeline-years">(2025-Forever and ever)</span></h3>
+                  <h3>Future... <span class="timeline-years">(Forever and ever)</span></h3>
                   <p>The future isn't something I plan to wait for — it's something I intend to build. Every project, every challenge, every small victory is a step toward a bigger vision: to innovate fearlessly, to lead with purpose, and to leave a lasting impact on the world around me. My journey is just beginning, and I’m determined to shape the future with creativity, resilience, and a belief that no idea is too bold when passion drives it. This is only the start — and the best is yet to come.</p>
                 </div>
               </div>
@@ -443,7 +469,7 @@
 
       <!-- Footer -->
       <footer>
-          <p>&copy; 2025 Hamid Javaheri. All rights reserved.</p>
+          <p>&copy; 2026 Hamid Javaheri. All rights reserved.</p>
       </footer>
 
 

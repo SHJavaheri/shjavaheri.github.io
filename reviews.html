@@ -6,6 +6,10 @@
   <title>Reviews • Hamid Javaheri</title>
 
   <!-- Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/reviews.css">
 
@@ -41,10 +45,30 @@
   <!-- Header Section -->
   <header class="hero">
     <canvas id="particles"></canvas>
-    
     <div class="hero-content">
-      <h1>Reviews about Me!</h1>
-      <p>See what people say about working with me</p>
+      <div class="hero-copy">
+        <p class="eyebrow">Reviews &amp; trust</p>
+        <h1>Reviews about Me!</h1>
+        <p class="hero-sub">Everything from collaborators, teammates, and mentors who witnessed the craft, timing, and human clarity I bring to every partnership.</p>
+        <div class="hero-actions">
+          <a href="#reviews" class="hero-button primary">Explore reviews</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfo9qf_wV6t8hrU0FACGeKz9ZZ2U5gRw1ZAhB141jGKSkbVwQ/viewform" class="hero-button ghost" target="_blank" rel="noreferrer">Share your take</a>
+        </div>
+        <div class="hero-tags">
+          <span>Craftsmanship</span>
+          <span>Reliability</span>
+          <span>Trust</span>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <p class="panel-label">By the numbers</p>
+        <div class="panel-rating">
+          <span id="heroAvgScore">0.0/5</span>
+          <div class="hero-panel-stars" id="heroStars" aria-hidden="true"></div>
+        </div>
+        <p class="panel-note">Stable insights drawn directly from verified reviewers across every engagement.</p>
+        <div class="panel-accent"></div>
+      </div>
     </div>
   </header>
 
@@ -70,11 +94,25 @@
         </div>
       </div>
 
+      <div class="review-controls">
+        <p class="control-label">Focus the spotlight</p>
+        <div class="filter-pills" role="tablist" aria-label="Select a rating to filter reviews">
+          <button class="filter-pill active" type="button" data-rating="all">All</button>
+          <button class="filter-pill" type="button" data-rating="5">5★</button>
+          <button class="filter-pill" type="button" data-rating="4">4★</button>
+          <button class="filter-pill" type="button" data-rating="3">3★</button>
+          <button class="filter-pill" type="button" data-rating="2">2★</button>
+          <button class="filter-pill" type="button" data-rating="1">1★</button>
+        </div>
+        <p id="filterFeedback" class="filter-feedback" aria-live="polite">Showing all reviews</p>
+      </div>
+
       <div id="loading" class="loading">Loading reviews…</div>
       <div id="err" class="err" style="display:none;">Couldn't load reviews right now.</div>
       <div id="empty" class="empty" style="display:none;">No reviews yet.</div>
 
       <ul id="reviews"></ul>
+      <p id="filterEmpty" class="empty" style="display:none;">No reviews match that filter.</p>
 
       <div class="actions">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfo9qf_wV6t8hrU0FACGeKz9ZZ2U5gRw1ZAhB141jGKSkbVwQ/viewform"

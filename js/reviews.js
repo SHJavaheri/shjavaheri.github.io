@@ -1,3 +1,10 @@
+let reviewsCache = [];
+let activeFilter = 'all';
+let reviewsListEl = null;
+let filterButtons = [];
+let filterFeedbackEl = null;
+let filterEmptyEl = null;
+
 document.addEventListener('DOMContentLoaded', () => {
     // Dark Mode Toggle + Ripple
     const toggleButton = document.getElementById('darkModeToggle');
@@ -251,6 +258,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     }
 
+    reviewsListEl = document.getElementById('reviews');
+    filterButtons = Array.from(document.querySelectorAll('.filter-pill'));
+    filterFeedbackEl = document.getElementById('filterFeedback');
+    filterEmptyEl = document.getElementById('filterEmpty');
+    bindFilterActions();
+    updateFilterFeedback();
     // Load reviews after DOM is ready
     loadReviews();
 });
@@ -261,10 +274,11 @@ async function loadReviews() {
         (typeof window !== "undefined" && window.REVIEWS_CSV_URL) ||
         "https://docs.google.com/spreadsheets/d/e/2PACX-1vR_W-Xrxcmum83gHN5CERgH0ZOmoUCUcB-OJex4VdH9SY0oFNhl5eZciObbWvD3aIKFjJjzSBtW8ETF/pub?gid=180390069&single=true&output=csv";
 
-    const list = document.getElementById("reviews");
     const avgBadge = document.getElementById("avg");
     const avgNum = document.getElementById("avgNum");
     const avgStars = document.getElementById("avgStars");
+    const heroAvgScore = document.getElementById("heroAvgScore");
+    const heroStars = document.getElementById("heroStars");
     const totalCountEl = document.getElementById("totalCount");
     const distRows = document.getElementById("distRows");
     const loading = document.getElementById("loading");
@@ -295,6 +309,10 @@ async function loadReviews() {
             return;
         }
 
+        reviewsCache = reviews;
+        updateFilterFeedback();
+        renderReviewCards();
+
         // Average and total
         const total = reviews.length;
         const avg = reviews.reduce((s, r) => s + r.rating, 0) / total;
@@ -304,6 +322,8 @@ async function loadReviews() {
         if (avgBadge) avgBadge.textContent = `${avgFixed}/5`;
         if (totalCountEl) totalCountEl.textContent = String(total);
         if (avgStars) avgStars.innerHTML = makeStars(Math.round(avg));
+        if (heroAvgScore) heroAvgScore.textContent = `${avgFixed}/5`;
+        if (heroStars) heroStars.innerHTML = makeStars(Math.round(avg));
 
         // Distribution counts (5..1)
         const counts = [0, 0, 0, 0, 0, 0]; // index by rating
@@ -341,32 +361,6 @@ async function loadReviews() {
             console.log("Bar widths:", Array.from(fills).map(f => f.getAttribute("data-width")));
         }
 
-        // Render review cards with staggered animation
-        if (list) {
-            list.innerHTML = "";
-            reviews.forEach((r, idx) => {
-                const li = document.createElement("li");
-                li.className = "review card";
-                li.style.animationDelay = `${idx * 0.1}s`;
-                const initials = getInitials(r.name);
-                li.innerHTML = `
-                    <div class="row">
-                        <div class="identity">
-                            <div class="avatar">${escapeHtml(initials)}</div>
-                            <div>
-                                <div class="name">${escapeHtml(r.name)}</div>
-                                <div class="small-muted"></div>
-                            </div>
-                        </div>
-                        <div class="stars" aria-label="${r.rating} out of 5 stars">
-                            ${makeStars(r.rating)}
-                        </div>
-                    </div>
-                    <div class="comment">${escapeHtml(r.comment)}</div>
-                `;
-                list.appendChild(li);
-            });
-        }
     } catch (e) {
         console.error(e);
         if (loading) loading.style.display = "none";
@@ -377,6 +371,75 @@ async function loadReviews() {
 function makeStars(n) {
     const rating = Math.max(1, Math.min(5, Number(n) || 0));
     return "★".repeat(rating) + "☆".repeat(5 - rating);
+}
+
+function bindFilterActions() {
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetRating = button.getAttribute('data-rating');
+            if (!targetRating) return;
+
+            activeFilter = targetRating;
+            filterButtons.forEach(btn => btn.classList.toggle('active', btn === button));
+            updateFilterFeedback();
+            renderReviewCards();
+        });
+    });
+}
+
+function getFilteredReviews() {
+    if (activeFilter === 'all') return reviewsCache;
+    const rating = Number(activeFilter);
+    if (isNaN(rating)) return reviewsCache;
+    return reviewsCache.filter(r => r.rating === rating);
+}
+
+function renderReviewCards() {
+    if (!reviewsListEl) return;
+    const filtered = getFilteredReviews();
+    reviewsListEl.innerHTML = '';
+
+    if (!filtered.length) {
+        if (filterEmptyEl) filterEmptyEl.style.display = 'block';
+        return;
+    }
+
+    if (filterEmptyEl) filterEmptyEl.style.display = 'none';
+
+    filtered.forEach((review, idx) => {
+        const li = document.createElement('li');
+        li.className = 'review card';
+        li.style.animationDelay = `${idx * 0.1}s`;
+        const initials = getInitials(review.name);
+        li.innerHTML = `
+            <div class="row">
+                <div class="identity">
+                    <div class="avatar">${escapeHtml(initials)}</div>
+                    <div>
+                        <div class="name">${escapeHtml(review.name)}</div>
+                        <div class="small-muted"></div>
+                    </div>
+                </div>
+                <div class="stars" aria-label="${review.rating} out of 5 stars">
+                    ${makeStars(review.rating)}
+                </div>
+            </div>
+            <div class="comment">${escapeHtml(review.comment)}</div>
+        `;
+        reviewsListEl.appendChild(li);
+    });
+}
+
+function updateFilterFeedback() {
+    if (!filterFeedbackEl) return;
+    const filtered = getFilteredReviews();
+    const reviewCount = filtered.length;
+
+    if (activeFilter === 'all') {
+        filterFeedbackEl.textContent = `Showing all reviews (${reviewsCache.length})`;
+    } else {
+        filterFeedbackEl.textContent = `Showing ${activeFilter}★ reviews (${reviewCount})`;
+    }
 }
 
 function getInitials(name) {

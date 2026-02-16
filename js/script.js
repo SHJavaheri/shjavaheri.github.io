@@ -144,6 +144,42 @@ toggleButton.addEventListener('click', () => {
     timelineItems.forEach(item => {
     observer.observe(item);
     });
+
+    // Skills card tilt + glow interactions
+    const skillsCards = document.querySelectorAll('.skills-card');
+
+    const resetCardState = card => {
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+        card.style.setProperty('--glow-x', '50%');
+        card.style.setProperty('--glow-y', '20%');
+    };
+
+    skillsCards.forEach(card => {
+        card.addEventListener('pointermove', event => {
+            const rect = card.getBoundingClientRect();
+            const normX = (event.clientX - rect.left) / rect.width;
+            const normY = (event.clientY - rect.top) / rect.height;
+            const rx = (normY - 0.5) * -12;
+            const ry = (normX - 0.5) * 12;
+            const glowX = Math.max(0, Math.min(100, normX * 100));
+            const glowY = Math.max(0, Math.min(100, normY * 100));
+
+            card.style.setProperty('--rx', `${rx}deg`);
+            card.style.setProperty('--ry', `${ry}deg`);
+            card.style.setProperty('--glow-x', `${glowX}%`);
+            card.style.setProperty('--glow-y', `${glowY}%`);
+        });
+
+        card.addEventListener('pointerleave', () => {
+            resetCardState(card);
+        });
+
+        card.addEventListener('pointerenter', () => {
+            card.style.setProperty('--glow-x', '50%');
+            card.style.setProperty('--glow-y', '20%');
+        });
+    });
   
 
 
